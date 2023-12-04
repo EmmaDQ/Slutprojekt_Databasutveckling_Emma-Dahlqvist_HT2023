@@ -5,12 +5,10 @@ namespace GreenThumb_Slutprojekt.Database
 {
     internal class GreenThumbRepository<T> where T : class
     {
-        private readonly GreenThumbDbContext _dbContext;
         private readonly DbSet<T> _dbSet;
 
         public GreenThumbRepository(GreenThumbDbContext dbContext)
         {
-            _dbContext = dbContext;
             _dbSet = dbContext.Set<T>();
         }
 
@@ -42,9 +40,6 @@ namespace GreenThumb_Slutprojekt.Database
         }
 
 
-        public void SaveChanges()
-        {
-            _dbContext.SaveChanges();
-        }
+
     }
 }

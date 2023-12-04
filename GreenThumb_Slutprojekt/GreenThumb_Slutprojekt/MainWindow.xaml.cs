@@ -1,13 +1,6 @@
-﻿using System.Text;
+﻿using GreenThumb_Slutprojekt.Database;
+using GreenThumb_Slutprojekt.Models;
 using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
 
 namespace GreenThumb_Slutprojekt
 {
@@ -19,6 +12,18 @@ namespace GreenThumb_Slutprojekt
         public MainWindow()
         {
             InitializeComponent();
+
+
+            using (GreenThumbDbContext context = new())
+            {
+                GreenThumbRepository<PlantModel> repo1 = new(context);
+
+                var plants = repo1.GetAll();
+
+                GreenThumbRepository<InstructionModel> repo2 = new(context);
+
+                var instructions = repo2.GetAll();
+            }
         }
     }
 }

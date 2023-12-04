@@ -4,10 +4,102 @@
 
 namespace GreenThumb_Slutprojekt.Migrations
 {
-    public partial class seeding : Migration
+    public partial class initialize : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
+            migrationBuilder.CreateTable(
+                name: "Plants",
+                columns: table => new
+                {
+                    id = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    name = table.Column<string>(type: "nvarchar(max)", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Plants", x => x.id);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "Users",
+                columns: table => new
+                {
+                    id = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    user_name = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    password = table.Column<string>(type: "nvarchar(max)", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Users", x => x.id);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "Instructions",
+                columns: table => new
+                {
+                    id = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    name = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    care_description = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    plant_id = table.Column<int>(type: "int", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Instructions", x => x.id);
+                    table.ForeignKey(
+                        name: "FK_Instructions_Plants_plant_id",
+                        column: x => x.plant_id,
+                        principalTable: "Plants",
+                        principalColumn: "id",
+                        onDelete: ReferentialAction.Cascade);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "Gardens",
+                columns: table => new
+                {
+                    id = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    name = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    user_id = table.Column<int>(type: "int", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Gardens", x => x.id);
+                    table.ForeignKey(
+                        name: "FK_Gardens_Users_user_id",
+                        column: x => x.user_id,
+                        principalTable: "Users",
+                        principalColumn: "id",
+                        onDelete: ReferentialAction.Cascade);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "GardenModelPlantModel",
+                columns: table => new
+                {
+                    GardensGardenId = table.Column<int>(type: "int", nullable: false),
+                    PlantsPlantId = table.Column<int>(type: "int", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_GardenModelPlantModel", x => new { x.GardensGardenId, x.PlantsPlantId });
+                    table.ForeignKey(
+                        name: "FK_GardenModelPlantModel_Gardens_GardensGardenId",
+                        column: x => x.GardensGardenId,
+                        principalTable: "Gardens",
+                        principalColumn: "id",
+                        onDelete: ReferentialAction.Cascade);
+                    table.ForeignKey(
+                        name: "FK_GardenModelPlantModel_Plants_PlantsPlantId",
+                        column: x => x.PlantsPlantId,
+                        principalTable: "Plants",
+                        principalColumn: "id",
+                        onDelete: ReferentialAction.Cascade);
+                });
+
             migrationBuilder.InsertData(
                 table: "Plants",
                 columns: new[] { "id", "name" },
@@ -26,6 +118,11 @@ namespace GreenThumb_Slutprojekt.Migrations
                     { 11, "Foxgloves" },
                     { 12, "Kniphofia" }
                 });
+
+            migrationBuilder.InsertData(
+                table: "Users",
+                columns: new[] { "id", "password", "user_name" },
+                values: new object[] { 1, "password", "user" });
 
             migrationBuilder.InsertData(
                 table: "Instructions",
@@ -57,189 +154,40 @@ namespace GreenThumb_Slutprojekt.Migrations
                     { 23, "During their first year, kniphofias will need the occasional thorough watering to keep the soil moist\r\n\r\nOnce settled in, they shouldn’t need watering except in prolonged dry spells\r\n\r\nSitting in waterlogged soil can cause the roots to rot, so check that the soil is dry to a depth of 15cm (6in) before watering", "Watering", 12 },
                     { 24, "To keep plants looking their best, deadhead after flowering. This also allows newer younger flower stems plenty of space to grow\r\n\r\nSimply cut the whole faded flower stem down at the base\r\n\r\nDeadheading also helps the plant to conserve energy, by stopping seed production. However, if you wish to collect seeds for sowing (see Propagation, below), then leave a few stems in place to set seed", "Deadheading", 12 }
                 });
+
+            migrationBuilder.CreateIndex(
+                name: "IX_GardenModelPlantModel_PlantsPlantId",
+                table: "GardenModelPlantModel",
+                column: "PlantsPlantId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_Gardens_user_id",
+                table: "Gardens",
+                column: "user_id",
+                unique: true);
+
+            migrationBuilder.CreateIndex(
+                name: "IX_Instructions_plant_id",
+                table: "Instructions",
+                column: "plant_id");
         }
 
         protected override void Down(MigrationBuilder migrationBuilder)
         {
-            migrationBuilder.DeleteData(
-                table: "Instructions",
-                keyColumn: "id",
-                keyValue: 1);
+            migrationBuilder.DropTable(
+                name: "GardenModelPlantModel");
 
-            migrationBuilder.DeleteData(
-                table: "Instructions",
-                keyColumn: "id",
-                keyValue: 2);
+            migrationBuilder.DropTable(
+                name: "Instructions");
 
-            migrationBuilder.DeleteData(
-                table: "Instructions",
-                keyColumn: "id",
-                keyValue: 3);
+            migrationBuilder.DropTable(
+                name: "Gardens");
 
-            migrationBuilder.DeleteData(
-                table: "Instructions",
-                keyColumn: "id",
-                keyValue: 4);
+            migrationBuilder.DropTable(
+                name: "Plants");
 
-            migrationBuilder.DeleteData(
-                table: "Instructions",
-                keyColumn: "id",
-                keyValue: 5);
-
-            migrationBuilder.DeleteData(
-                table: "Instructions",
-                keyColumn: "id",
-                keyValue: 6);
-
-            migrationBuilder.DeleteData(
-                table: "Instructions",
-                keyColumn: "id",
-                keyValue: 7);
-
-            migrationBuilder.DeleteData(
-                table: "Instructions",
-                keyColumn: "id",
-                keyValue: 8);
-
-            migrationBuilder.DeleteData(
-                table: "Instructions",
-                keyColumn: "id",
-                keyValue: 9);
-
-            migrationBuilder.DeleteData(
-                table: "Instructions",
-                keyColumn: "id",
-                keyValue: 10);
-
-            migrationBuilder.DeleteData(
-                table: "Instructions",
-                keyColumn: "id",
-                keyValue: 11);
-
-            migrationBuilder.DeleteData(
-                table: "Instructions",
-                keyColumn: "id",
-                keyValue: 12);
-
-            migrationBuilder.DeleteData(
-                table: "Instructions",
-                keyColumn: "id",
-                keyValue: 13);
-
-            migrationBuilder.DeleteData(
-                table: "Instructions",
-                keyColumn: "id",
-                keyValue: 14);
-
-            migrationBuilder.DeleteData(
-                table: "Instructions",
-                keyColumn: "id",
-                keyValue: 15);
-
-            migrationBuilder.DeleteData(
-                table: "Instructions",
-                keyColumn: "id",
-                keyValue: 16);
-
-            migrationBuilder.DeleteData(
-                table: "Instructions",
-                keyColumn: "id",
-                keyValue: 17);
-
-            migrationBuilder.DeleteData(
-                table: "Instructions",
-                keyColumn: "id",
-                keyValue: 18);
-
-            migrationBuilder.DeleteData(
-                table: "Instructions",
-                keyColumn: "id",
-                keyValue: 19);
-
-            migrationBuilder.DeleteData(
-                table: "Instructions",
-                keyColumn: "id",
-                keyValue: 20);
-
-            migrationBuilder.DeleteData(
-                table: "Instructions",
-                keyColumn: "id",
-                keyValue: 21);
-
-            migrationBuilder.DeleteData(
-                table: "Instructions",
-                keyColumn: "id",
-                keyValue: 22);
-
-            migrationBuilder.DeleteData(
-                table: "Instructions",
-                keyColumn: "id",
-                keyValue: 23);
-
-            migrationBuilder.DeleteData(
-                table: "Instructions",
-                keyColumn: "id",
-                keyValue: 24);
-
-            migrationBuilder.DeleteData(
-                table: "Plants",
-                keyColumn: "id",
-                keyValue: 1);
-
-            migrationBuilder.DeleteData(
-                table: "Plants",
-                keyColumn: "id",
-                keyValue: 2);
-
-            migrationBuilder.DeleteData(
-                table: "Plants",
-                keyColumn: "id",
-                keyValue: 3);
-
-            migrationBuilder.DeleteData(
-                table: "Plants",
-                keyColumn: "id",
-                keyValue: 4);
-
-            migrationBuilder.DeleteData(
-                table: "Plants",
-                keyColumn: "id",
-                keyValue: 5);
-
-            migrationBuilder.DeleteData(
-                table: "Plants",
-                keyColumn: "id",
-                keyValue: 6);
-
-            migrationBuilder.DeleteData(
-                table: "Plants",
-                keyColumn: "id",
-                keyValue: 7);
-
-            migrationBuilder.DeleteData(
-                table: "Plants",
-                keyColumn: "id",
-                keyValue: 8);
-
-            migrationBuilder.DeleteData(
-                table: "Plants",
-                keyColumn: "id",
-                keyValue: 9);
-
-            migrationBuilder.DeleteData(
-                table: "Plants",
-                keyColumn: "id",
-                keyValue: 10);
-
-            migrationBuilder.DeleteData(
-                table: "Plants",
-                keyColumn: "id",
-                keyValue: 11);
-
-            migrationBuilder.DeleteData(
-                table: "Plants",
-                keyColumn: "id",
-                keyValue: 12);
+            migrationBuilder.DropTable(
+                name: "Users");
         }
     }
 }

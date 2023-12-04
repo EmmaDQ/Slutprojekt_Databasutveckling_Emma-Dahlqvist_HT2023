@@ -301,6 +301,19 @@ namespace GreenThumb_Slutprojekt.Database
                 );
 
 
+            modelBuilder.Entity<UserModel>()
+                .HasData(
+                new UserModel()
+                {
+                    UserId = 1,
+                    UserName = "user",
+                    Password = "password"
+
+                });
+
+
+
+
         }
     }
 
