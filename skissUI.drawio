@@ -1,0 +1,112 @@
+<mxfile host="app.diagrams.net" modified="2023-12-04T09:32:50.303Z" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36" etag="01MX-5wJt9Ny5P_pUvhq" version="22.1.5" type="device">
+  <diagram name="Sida-1" id="MzAe4AkPnwdhP1O64lhZ">
+    <mxGraphModel dx="626" dy="700" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="gxFCZdxq8-a961sb9cm7-2" value="" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="41" y="81" width="280" height="360" as="geometry" />
+        </mxCell>
+        <mxCell id="gxFCZdxq8-a961sb9cm7-3" value="" style="rounded=0;whiteSpace=wrap;html=1;movable=0;resizable=0;rotatable=0;deletable=0;editable=0;locked=1;connectable=0;" vertex="1" parent="1">
+          <mxGeometry x="520" y="81" width="280" height="360" as="geometry" />
+        </mxCell>
+        <mxCell id="gxFCZdxq8-a961sb9cm7-4" value="" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="41" y="502" width="280" height="361" as="geometry" />
+        </mxCell>
+        <mxCell id="gxFCZdxq8-a961sb9cm7-5" value="" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="520" y="502" width="280" height="361" as="geometry" />
+        </mxCell>
+        <mxCell id="gxFCZdxq8-a961sb9cm7-6" value="AddPlantWindow" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
+          <mxGeometry x="520" y="40" width="100" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="gxFCZdxq8-a961sb9cm7-7" value="PlantWindow" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
+          <mxGeometry x="50" y="40" width="60" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="gxFCZdxq8-a961sb9cm7-8" value="PlantDetailsWindow" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
+          <mxGeometry x="41" y="463" width="109" height="31" as="geometry" />
+        </mxCell>
+        <mxCell id="gxFCZdxq8-a961sb9cm7-9" value="MyGardenWindow" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
+          <mxGeometry x="520" y="463" width="109" height="31" as="geometry" />
+        </mxCell>
+        <mxCell id="gxFCZdxq8-a961sb9cm7-10" value="&lt;ul&gt;&lt;li&gt;Se och söka på växter.&lt;/li&gt;&lt;/ul&gt;&lt;ul&gt;&lt;li&gt;Sökfunktion för växtnamn.&lt;/li&gt;&lt;/ul&gt;&lt;ul&gt;&lt;li&gt;Knapp för att komma till AddPlantWindow.&lt;/li&gt;&lt;/ul&gt;&lt;ul&gt;&lt;li&gt;Knappar &quot;Details&quot; och &quot;Delete&quot; för att hantera valda växter i listan, med&lt;br&gt;tillhörande varningsmeddelanden.&lt;/li&gt;&lt;/ul&gt;&lt;ul&gt;&lt;li&gt;Om man tar bort en växt ska även tillhörande skötselråd försvinna från&lt;br&gt;databasen.&lt;br&gt;&lt;/li&gt;&lt;/ul&gt;" style="text;strokeColor=none;fillColor=none;html=1;whiteSpace=wrap;verticalAlign=middle;overflow=hidden;" vertex="1" parent="1">
+          <mxGeometry x="300" y="100" width="180" height="280" as="geometry" />
+        </mxCell>
+        <mxCell id="gxFCZdxq8-a961sb9cm7-11" value="&lt;ul&gt;&lt;li&gt;Lägga till ny växtinformation.&amp;nbsp;&lt;/li&gt;&lt;/ul&gt;&lt;ul&gt;&lt;li&gt;Fält för växtens namn, skötselråd och &lt;strike&gt;planteringsdatum&lt;/strike&gt;.&amp;nbsp;&lt;/li&gt;&lt;/ul&gt;&lt;ul&gt;&lt;li&gt;Knapp för att spara den nya växten.&amp;nbsp;&lt;/li&gt;&lt;/ul&gt;&lt;ul&gt;&lt;li&gt;Varningsmeddelande om informationen inte är komplett.&amp;nbsp;&lt;/li&gt;&lt;/ul&gt;&lt;ul&gt;&lt;li&gt;Om man försöker lägga till en växt som redan finns i databasen ska ett&lt;br&gt;varningsmeddelande dyka upp.&lt;br&gt;&lt;/li&gt;&lt;/ul&gt;" style="text;strokeColor=none;fillColor=none;html=1;whiteSpace=wrap;verticalAlign=middle;overflow=hidden;" vertex="1" parent="1">
+          <mxGeometry x="780" y="100" width="180" height="280" as="geometry" />
+        </mxCell>
+        <mxCell id="gxFCZdxq8-a961sb9cm7-12" value="&lt;ul&gt;&lt;li&gt;&lt;font color=&quot;#cc99ff&quot;&gt;Visa användarens trädgård och alla växter i den.&amp;nbsp;&lt;/font&gt;&lt;/li&gt;&lt;/ul&gt;&lt;ul&gt;&lt;li&gt;&lt;font color=&quot;#003300&quot;&gt;GreenThumb 3&lt;br&gt;Visa och arrangera växter i en virtuell trädgård.&lt;/font&gt;&lt;br&gt;&lt;/li&gt;&lt;/ul&gt;" style="text;strokeColor=none;fillColor=none;html=1;whiteSpace=wrap;verticalAlign=middle;overflow=hidden;" vertex="1" parent="1">
+          <mxGeometry x="780" y="530" width="180" height="280" as="geometry" />
+        </mxCell>
+        <mxCell id="gxFCZdxq8-a961sb9cm7-13" value="&lt;ul&gt;&lt;li&gt;Visa och &lt;font color=&quot;#003300&quot;&gt;ändra&lt;/font&gt; detaljer om en växt.&amp;nbsp;&lt;/li&gt;&lt;/ul&gt;&lt;ul&gt;&lt;li&gt;Låsta inputrutor för växtinformation.&amp;nbsp;&lt;/li&gt;&lt;/ul&gt;&lt;ul&gt;&lt;li&gt;&lt;font color=&quot;#003300&quot;&gt;Knappar för att låsa upp inputrutor för att möjliggöra ändringar.&amp;nbsp;&lt;/font&gt;&lt;/li&gt;&lt;/ul&gt;&lt;ul&gt;&lt;li&gt;&lt;font color=&quot;#003300&quot;&gt;En knapp för att spara ändringar (namn, skötselråd och planteringsdatum).&amp;nbsp;&lt;/font&gt;&lt;/li&gt;&lt;/ul&gt;&lt;ul&gt;&lt;li&gt;&lt;font color=&quot;#cc99ff&quot;&gt;Knapp för att lägga till växten i sin trädgård (se MyGardenWindow nedan).&lt;/font&gt;&lt;br&gt;&lt;/li&gt;&lt;/ul&gt;" style="text;strokeColor=none;fillColor=none;html=1;whiteSpace=wrap;verticalAlign=middle;overflow=hidden;" vertex="1" parent="1">
+          <mxGeometry x="300" y="520" width="180" height="280" as="geometry" />
+        </mxCell>
+        <mxCell id="gxFCZdxq8-a961sb9cm7-14" value="" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="50" y="949" width="280" height="361" as="geometry" />
+        </mxCell>
+        <mxCell id="gxFCZdxq8-a961sb9cm7-15" value="" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="529" y="949" width="280" height="361" as="geometry" />
+        </mxCell>
+        <mxCell id="gxFCZdxq8-a961sb9cm7-16" value="SignInWindow" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
+          <mxGeometry x="50" y="910" width="109" height="31" as="geometry" />
+        </mxCell>
+        <mxCell id="gxFCZdxq8-a961sb9cm7-17" value="RegisterWindow" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
+          <mxGeometry x="529" y="910" width="109" height="31" as="geometry" />
+        </mxCell>
+        <mxCell id="gxFCZdxq8-a961sb9cm7-18" value="&lt;ul&gt;&lt;li&gt;&lt;font color=&quot;#cc99ff&quot;&gt;Registrera en ny användare.&amp;nbsp;&lt;/font&gt;&lt;/li&gt;&lt;/ul&gt;&lt;ul&gt;&lt;li&gt;&lt;font color=&quot;#cc99ff&quot;&gt;Validering för att förhindra duplicering av användarnamn.&lt;/font&gt;&lt;br&gt;&lt;/li&gt;&lt;/ul&gt;" style="text;strokeColor=none;fillColor=none;html=1;whiteSpace=wrap;verticalAlign=middle;overflow=hidden;" vertex="1" parent="1">
+          <mxGeometry x="790" y="980" width="180" height="280" as="geometry" />
+        </mxCell>
+        <mxCell id="gxFCZdxq8-a961sb9cm7-19" value="&lt;div&gt;&lt;br&gt;&lt;/div&gt;&lt;ul&gt;&lt;li&gt;&lt;font color=&quot;#cc99ff&quot;&gt;Logga in med användarnamn och lösenord.&lt;/font&gt;&lt;br&gt;&lt;/li&gt;&lt;/ul&gt;" style="text;strokeColor=none;fillColor=none;html=1;whiteSpace=wrap;verticalAlign=middle;overflow=hidden;" vertex="1" parent="1">
+          <mxGeometry x="309" y="967" width="180" height="280" as="geometry" />
+        </mxCell>
+        <mxCell id="gxFCZdxq8-a961sb9cm7-20" value="" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="57.5" y="160" width="94" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="gxFCZdxq8-a961sb9cm7-21" value="" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="173" y="130" width="127" height="220" as="geometry" />
+        </mxCell>
+        <mxCell id="gxFCZdxq8-a961sb9cm7-22" value="Delete" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="226" y="369" width="70" height="31" as="geometry" />
+        </mxCell>
+        <mxCell id="gxFCZdxq8-a961sb9cm7-24" value="Add new Plant" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="66" y="369" width="70" height="31" as="geometry" />
+        </mxCell>
+        <mxCell id="gxFCZdxq8-a961sb9cm7-27" value="Details" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="146" y="369" width="70" height="31" as="geometry" />
+        </mxCell>
+        <mxCell id="gxFCZdxq8-a961sb9cm7-28" value="" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="540" y="240" width="240" height="130" as="geometry" />
+        </mxCell>
+        <mxCell id="gxFCZdxq8-a961sb9cm7-29" value="" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="596.5" y="160" width="183.5" height="35" as="geometry" />
+        </mxCell>
+        <mxCell id="gxFCZdxq8-a961sb9cm7-37" value="Name" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
+          <mxGeometry x="540" y="162.5" width="60" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="gxFCZdxq8-a961sb9cm7-38" value="Care Description" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
+          <mxGeometry x="540" y="210" width="120" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="gxFCZdxq8-a961sb9cm7-40" value="Save" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="710" y="380" width="70" height="31" as="geometry" />
+        </mxCell>
+        <mxCell id="gxFCZdxq8-a961sb9cm7-41" value="&lt;h2&gt;Add a Plant&lt;/h2&gt;" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
+          <mxGeometry x="529" y="100" width="111" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="gxFCZdxq8-a961sb9cm7-42" value="&lt;h2&gt;Plants&lt;/h2&gt;" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
+          <mxGeometry x="50" y="100" width="70" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="gxFCZdxq8-a961sb9cm7-43" value="&lt;h2&gt;Plant Details&lt;/h2&gt;" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
+          <mxGeometry x="50" y="527" width="111" height="38" as="geometry" />
+        </mxCell>
+        <mxCell id="gxFCZdxq8-a961sb9cm7-44" value="&lt;h2&gt;My Garden&lt;/h2&gt;" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
+          <mxGeometry x="529" y="527" width="111" height="38" as="geometry" />
+        </mxCell>
+        <mxCell id="gxFCZdxq8-a961sb9cm7-45" value="&lt;h2&gt;Sign in&lt;/h2&gt;" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
+          <mxGeometry x="57.5" y="974" width="72.5" height="38" as="geometry" />
+        </mxCell>
+        <mxCell id="gxFCZdxq8-a961sb9cm7-46" value="&lt;h2&gt;Register User&lt;/h2&gt;" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
+          <mxGeometry x="540" y="974" width="130" height="38" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
