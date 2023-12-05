@@ -1,6 +1,4 @@
-﻿using GreenThumb_Slutprojekt.Database;
-using GreenThumb_Slutprojekt.Models;
-using System.Windows;
+﻿using System.Windows;
 
 namespace GreenThumb_Slutprojekt
 {
@@ -14,7 +12,7 @@ namespace GreenThumb_Slutprojekt
             InitializeComponent();
 
 
-            using (GreenThumbDbContext context = new())
+            /*using (GreenThumbDbContext context = new())
             {
                 GreenThumbRepository<PlantModel> repo1 = new(context);
 
@@ -23,7 +21,16 @@ namespace GreenThumb_Slutprojekt
                 GreenThumbRepository<InstructionModel> repo2 = new(context);
 
                 var instructions = repo2.GetAll();
-            }
+            }*/
+        }
+
+
+        private void Button_Click_1(object sender, RoutedEventArgs e)
+        {
+            PlantWindow plant = new PlantWindow();
+            plant.Show();
+
+            Close();
         }
     }
 }
