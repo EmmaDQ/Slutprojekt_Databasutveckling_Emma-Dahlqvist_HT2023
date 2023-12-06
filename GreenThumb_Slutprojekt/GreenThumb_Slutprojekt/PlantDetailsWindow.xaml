@@ -10,7 +10,7 @@
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="20"/>
             <ColumnDefinition/>
-            <ColumnDefinition/>
+            <ColumnDefinition Width="1.7*"/>
             <ColumnDefinition Width="20"/>
         </Grid.ColumnDefinitions>
 
@@ -19,18 +19,32 @@
             <RowDefinition/>
             <RowDefinition/>
             <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition Height="4*"/>
+            <RowDefinition/>
+            <RowDefinition/>
             <RowDefinition Height="20"/>
         </Grid.RowDefinitions>
 
-        <Button x:Name="btnSearch" Grid.Column="1" Grid.Row="2" Margin="170,70,10,120" Content="Search" FontSize="22" FontFamily="Gadugi"/>
-        <Button x:Name="btnAdd" Grid.Column="1" Grid.Row="3" Margin="10 100 110 70" BorderBrush="{x:Null}" Content="Add new plant" FontSize="20" FontFamily="Gadugi" Click="btnAdd_Click"/>
-        <Button x:Name="btnDetails" Grid.Column="1" Grid.Row="3" Grid.ColumnSpan="2" Margin="200 100 200 70" Content="Details" FontSize="20" FontFamily="Gadugi"/>
-        <Button x:Name="btnDelete" Grid.Column="2" Grid.Row="3" Margin="110 100 10 70" Content="Delete" FontSize="20" FontFamily="Gadugi"/>
+        <Label Grid.Column="1" Grid.Row="2" Content="Plant Details" FontSize="48" FontFamily="Gabriola" />
+        <Label Grid.Column="1" Grid.Row="3" Content="Name of plant" FontSize="20" FontFamily="Gadugi" HorizontalAlignment="Center" VerticalAlignment="Center" VerticalContentAlignment="Center" />
+        <Label Grid.Column="1" Grid.Row="4" Content="Instruction title" FontSize="20" FontFamily="Gadugi" HorizontalAlignment="Center" VerticalAlignment="Center" VerticalContentAlignment="Center" />
+        <Label Grid.Column="1" Grid.Row="5" Content="New instruction" FontSize="20" FontFamily="Gadugi" HorizontalAlignment="Center" VerticalAlignment="Bottom" VerticalContentAlignment="Center" Margin="0,5,0,0" HorizontalContentAlignment="Center" />
+        <Label Grid.Column="2" Grid.Row="5" Content="Instructions for {plant name}" FontSize="20" FontFamily="Gadugi" HorizontalAlignment="Center" VerticalAlignment="Bottom" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" />
 
-        <ListView x:Name="lstPlants" Grid.Column="2" Grid.Row="1" Grid.RowSpan="3" Margin="10 100 10 180"/>
-        <Label Grid.Column="1" Grid.Row="1" Height="100" VerticalAlignment="Top" Margin="0,30,0,0" Content="Plants" FontSize="72" FontFamily="Gabriola"/>
-        <Label Grid.Column="1" Grid.Row="1" Content="Find plant" VerticalAlignment="Bottom" HorizontalAlignment="Left" Margin="10,0,0,20" FontSize="18" FontFamily="Gadugi"/>
-        <TextBlock x:Name="lblErrorMessage" Grid.Column="1" Grid.Row="2" Text="Sorry, we don't have that plant in our register. Please press -Add new plant- if you would like to add it to the collection or choose one in the view to the right!" TextWrapping="Wrap" TextAlignment="Center" VerticalAlignment="Center" FontSize="18" Margin="30,130,30,-70" HorizontalAlignment="Center" FontFamily="Gadugi" IsEnabled="False"/>
-        <TextBox x:Name="txtSearch" Grid.Column="1" Grid.Row="1" Margin="10,220,10,-50" FontFamily="Gabriola" FontSize="18" />
+        <CheckBox x:Name="cbMakeChanges" Content="Make Changes" Grid.Column="2" Grid.Row="2" HorizontalAlignment="Left" VerticalAlignment="Bottom" FontFamily="Gadugi" FontSize="16" Margin="200,0,0,0"/>
+        <TextBox x:Name="txtNamePlant" Grid.Column="2" Grid.Row="3" Margin="10,10,10,10" FontFamily="Gadugi" FontSize="20"/>
+        <TextBox x:Name="txtInstructionTitle" Grid.Column="2" Grid.Row="4" Margin="10,7,10,13" FontFamily="Gadugi" FontSize="20"/>
+
+        <TextBox x:Name="txtNewInstruction" Grid.Column="1" Grid.Row="6" Margin="10,10,10,10"/>
+        <ListView x:Name="lstInstructions" Grid.Column="2" Grid.Row="6" Margin="10,10,10,10"/>
+
+        <Button x:Name="btnSaveInstructions" Grid.Column="1" Grid.Row="7" Margin="65,10,10,10" Content="Save instruction" FontFamily="Gadugi" FontSize="16"/>
+        <Button x:Name="btnDeleteInstructions" Grid.Column="2" Grid.Row="7" Margin="211,10,10,10" Content="Delete instruction" FontFamily="Gadugi" FontSize="16"/>
+        <Button x:Name="btnSaveChanges" Grid.Column="2" Grid.Row="8" Margin="171,0,10,0" Content="Save changes" FontFamily="Gadugi" FontSize="20"/>
+
+
+
     </Grid>
 </Window>

@@ -5,8 +5,43 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:GreenThumb_Slutprojekt"
         mc:Ignorable="d"
-        Title="AddPlantWindow" Height="450" Width="800">
+        Title="AddPlantWindow" Height="750" Width="600" WindowStartupLocation="CenterScreen">
     <Grid>
-        
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="20"/>
+            <ColumnDefinition/>
+            <ColumnDefinition Width="1.7*"/>
+            <ColumnDefinition Width="20"/>
+        </Grid.ColumnDefinitions>
+
+        <Grid.RowDefinitions>
+            <RowDefinition Height="20"/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition Height="4*"/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition Height="20"/>
+        </Grid.RowDefinitions>
+
+        <Label Grid.Column="1" Grid.Row="1" Content="Adding new plant" Grid.ColumnSpan="2" FontSize="48" FontFamily="Gabriola" Margin="0,55,215,0" Grid.RowSpan="2" />
+        <Label Grid.Column="1" Grid.Row="3" Content="Name of plant" FontSize="20" FontFamily="Gadugi" HorizontalAlignment="Center" VerticalAlignment="Center" VerticalContentAlignment="Center" />
+        <Label Grid.Column="1" Grid.Row="4" Content="Instruction title" FontSize="20" FontFamily="Gadugi" HorizontalAlignment="Center" VerticalAlignment="Center" VerticalContentAlignment="Center" />
+        <Label Grid.Column="1" Grid.Row="5" Content="New instruction" FontSize="20" FontFamily="Gadugi" HorizontalAlignment="Left" VerticalAlignment="Bottom" VerticalContentAlignment="Center" Margin="71,0,0,252" HorizontalContentAlignment="Center" Grid.ColumnSpan="2" Grid.RowSpan="2" />
+        <Label Grid.Column="2" Grid.Row="5" Grid.ColumnSpan="2" Content="Instructions for {plant name}" FontSize="20" FontFamily="Gadugi" HorizontalAlignment="Left" VerticalAlignment="Top" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" Margin="73,10,0,0" Width="310" Height="71" Grid.RowSpan="2" />
+        <TextBox x:Name="txtNamePlant" Grid.Column="2" Grid.Row="3" Margin="10,10,10,10" FontFamily="Gadugi" FontSize="20"/>
+        <TextBox x:Name="txtInstructionTitle" Grid.Column="2" Grid.Row="4" Margin="10,7,10,13" FontFamily="Gadugi" FontSize="20" TextWrapping="Wrap"/>
+
+        <TextBox x:Name="txtNewInstruction" Grid.Column="1" Grid.Row="6" Margin="10,10,280,10" Grid.ColumnSpan="2" TextWrapping="Wrap" FontFamily="Gadugi" FontSize="20"/>
+        <ListView x:Name="lstInstructions" Grid.Column="2" Grid.Row="6" Margin="138,10,10,32" Grid.RowSpan="2"/>
+
+        <Button x:Name="btnSaveInstructions" Grid.Column="1" Grid.Row="7" Margin="13,10,62,10" Content="Save instruction" FontFamily="Gadugi" FontSize="16" Click="btnSaveInstructions_Click"/>
+        <Button x:Name="btnSaveChanges" Grid.Column="2" Grid.Row="8" Margin="171,0,10,0" Content="Save changes" FontFamily="Gadugi" FontSize="20" Click="btnSaveChanges_Click"/>
+
+
+
     </Grid>
 </Window>

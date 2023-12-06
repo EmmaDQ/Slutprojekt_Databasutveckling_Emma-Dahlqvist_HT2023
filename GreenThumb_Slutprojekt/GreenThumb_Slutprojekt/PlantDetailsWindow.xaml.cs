@@ -1,4 +1,4 @@
-﻿using GreenThumb_Slutprojekt.Database;
+﻿using GreenThumb_Slutprojekt.Models;
 using System.Windows;
 
 namespace GreenThumb_Slutprojekt
@@ -8,7 +8,7 @@ namespace GreenThumb_Slutprojekt
     /// </summary>
     public partial class PlantDetailsWindow : Window
     {
-        internal PlantDetailsWindow(GreenThumbUow uow)
+        internal PlantDetailsWindow(PlantModel plant)
         {
             InitializeComponent();
 

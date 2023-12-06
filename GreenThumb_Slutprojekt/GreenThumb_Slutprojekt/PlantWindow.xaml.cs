@@ -1,5 +1,6 @@
 ﻿using GreenThumb_Slutprojekt.Database;
 using GreenThumb_Slutprojekt.Manager;
+using GreenThumb_Slutprojekt.Models;
 using System.Windows;
 using System.Windows.Controls;
 
@@ -55,18 +56,75 @@ namespace GreenThumb_Slutprojekt
 
         private void btnAdd_Click(object sender, RoutedEventArgs e)
         {
-            AddPlantWindow win = new(newPlant);
-            win.Show();
+            if (!string.IsNullOrEmpty(newPlant))
+            {
+                AddPlantWindow win = new(newPlant);
+                win.Show();
+                Close();
+            }
+
+            else
+            {
+                AddPlantWindow win = new();
+                win.Show();
+                Close();
+            }
+
 
         }
 
         private void btnDetails_Click(object sender, RoutedEventArgs e)
         {
 
+            using (GreenThumbDbContext context = new())
+            {
+                GreenThumbUow uow = new(context);
+
+                ListViewItem selectedItem = (ListViewItem)lstPlants.SelectedItem;
+                PlantModel selectedPlant = (PlantModel)selectedItem.Tag;
+
+                PlantDetailsWindow detail = new(selectedPlant);
+                detail.Show();
+                Close();
+
+
+            }
         }
 
         private void btnDelete_Click(object sender, RoutedEventArgs e)
         {
+            using (GreenThumbDbContext context = new())
+            {
+                if (lstPlants.SelectedItems != null)
+                {
+                    GreenThumbUow uow = new(context);
+
+                    ListViewItem selectedItem = (ListViewItem)lstPlants.SelectedItem;
+                    PlantModel selectedPlant = (PlantModel)selectedItem.Tag;
+
+                    MessageBoxResult m = MessageBox.Show($"Are you sure you want to delete {selectedItem.Content}?", "Delete", MessageBoxButton.YesNo);
+
+
+                    if (m == MessageBoxResult.Yes)
+                    {
+                        uow.PlantRepo.Delete(selectedPlant.PlantId);
+
+                        uow.SaveChanges();
+
+                        UpdateUI();
+                    }
+
+                }
+
+                else
+                {
+                    MessageBox.Show("Please choose a plant to delete from the list!", "No selection");
+                }
+
+
+            }
+
+
 
         }
 
@@ -87,6 +145,7 @@ namespace GreenThumb_Slutprojekt
 
                     lblErrorMessage.Visibility = Visibility.Visible;
 
+                    MessageBox.Show("Please write the name of the plant you want to search for!", "No text found");
 
                 }
 
