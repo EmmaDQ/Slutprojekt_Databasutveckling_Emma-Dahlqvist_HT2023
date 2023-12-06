@@ -13,5 +13,7 @@ namespace GreenThumb_Slutprojekt.Models
         public List<InstructionModel> Instructions { get; set; } = new();
 
         public List<GardenModel> Gardens { get; set; } = new();
+
+
     }
 }

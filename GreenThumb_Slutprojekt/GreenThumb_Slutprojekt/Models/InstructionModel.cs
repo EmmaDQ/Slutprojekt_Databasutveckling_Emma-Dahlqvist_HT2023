@@ -17,5 +17,6 @@ namespace GreenThumb_Slutprojekt.Models
         public PlantModel Plant { get; set; } = null!;
 
 
+
     }
 }
