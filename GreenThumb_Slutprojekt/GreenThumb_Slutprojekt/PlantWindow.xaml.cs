@@ -76,19 +76,28 @@ namespace GreenThumb_Slutprojekt
         private void btnDetails_Click(object sender, RoutedEventArgs e)
         {
 
-            using (GreenThumbDbContext context = new())
+            if (lstPlants.SelectedItem != null)
             {
-                GreenThumbUow uow = new(context);
+                using (GreenThumbDbContext context = new())
+                {
+                    GreenThumbUow uow = new(context);
 
-                ListViewItem selectedItem = (ListViewItem)lstPlants.SelectedItem;
-                PlantModel selectedPlant = (PlantModel)selectedItem.Tag;
+                    ListViewItem selectedItem = (ListViewItem)lstPlants.SelectedItem;
+                    PlantModel selectedPlant = (PlantModel)selectedItem.Tag;
 
-                PlantDetailsWindow detail = new(selectedPlant);
-                detail.Show();
-                Close();
+                    PlantDetailsWindow detail = new(selectedPlant);
+                    detail.Show();
+                    Close();
 
-
+                }
             }
+
+            else
+            {
+                MessageBox.Show("Please choose a plant in the list above for more details!", "No plant selected");
+            }
+
+
         }
 
         private void btnDelete_Click(object sender, RoutedEventArgs e)

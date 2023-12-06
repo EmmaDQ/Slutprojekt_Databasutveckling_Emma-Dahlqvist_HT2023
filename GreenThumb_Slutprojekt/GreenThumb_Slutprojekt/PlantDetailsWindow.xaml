@@ -29,20 +29,20 @@
 
         <Label Grid.Column="1" Grid.Row="2" Content="Plant Details" FontSize="48" FontFamily="Gabriola" />
         <Label Grid.Column="1" Grid.Row="3" Content="Name of plant" FontSize="20" FontFamily="Gadugi" HorizontalAlignment="Center" VerticalAlignment="Center" VerticalContentAlignment="Center" />
-        <Label Grid.Column="1" Grid.Row="4" Content="Instruction title" FontSize="20" FontFamily="Gadugi" HorizontalAlignment="Center" VerticalAlignment="Center" VerticalContentAlignment="Center" />
-        <Label Grid.Column="1" Grid.Row="5" Content="New instruction" FontSize="20" FontFamily="Gadugi" HorizontalAlignment="Center" VerticalAlignment="Bottom" VerticalContentAlignment="Center" Margin="0,5,0,0" HorizontalContentAlignment="Center" />
+        <Label x:Name="lblTitleInstruction" Grid.Column="1" Grid.Row="4" Content="Instruction title" FontSize="20" FontFamily="Gadugi" HorizontalAlignment="Center" VerticalAlignment="Center" VerticalContentAlignment="Center" />
+        <Label x:Name="lblNewInstruction" Grid.Column="1" Grid.Row="5" Content="New instruction" FontSize="20" FontFamily="Gadugi" HorizontalAlignment="Center" VerticalAlignment="Bottom" VerticalContentAlignment="Center" Margin="0,5,0,0" HorizontalContentAlignment="Center" />
         <Label Grid.Column="2" Grid.Row="5" Content="Instructions for {plant name}" FontSize="20" FontFamily="Gadugi" HorizontalAlignment="Center" VerticalAlignment="Bottom" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" />
 
-        <CheckBox x:Name="cbMakeChanges" Content="Make Changes" Grid.Column="2" Grid.Row="2" HorizontalAlignment="Left" VerticalAlignment="Bottom" FontFamily="Gadugi" FontSize="16" Margin="200,0,0,0"/>
+        <CheckBox x:Name="cbMakeChanges" Content="Make Changes" Grid.Column="2" Grid.Row="2" HorizontalAlignment="Left" VerticalAlignment="Bottom" FontFamily="Gadugi" FontSize="16" Margin="200,0,0,0" Unchecked="cbMakeChanges_Unchecked" Checked="cbMakeChanges_Checked"/>
         <TextBox x:Name="txtNamePlant" Grid.Column="2" Grid.Row="3" Margin="10,10,10,10" FontFamily="Gadugi" FontSize="20"/>
         <TextBox x:Name="txtInstructionTitle" Grid.Column="2" Grid.Row="4" Margin="10,7,10,13" FontFamily="Gadugi" FontSize="20"/>
 
         <TextBox x:Name="txtNewInstruction" Grid.Column="1" Grid.Row="6" Margin="10,10,10,10"/>
         <ListView x:Name="lstInstructions" Grid.Column="2" Grid.Row="6" Margin="10,10,10,10"/>
 
-        <Button x:Name="btnSaveInstructions" Grid.Column="1" Grid.Row="7" Margin="65,10,10,10" Content="Save instruction" FontFamily="Gadugi" FontSize="16"/>
-        <Button x:Name="btnDeleteInstructions" Grid.Column="2" Grid.Row="7" Margin="211,10,10,10" Content="Delete instruction" FontFamily="Gadugi" FontSize="16"/>
-        <Button x:Name="btnSaveChanges" Grid.Column="2" Grid.Row="8" Margin="171,0,10,0" Content="Save changes" FontFamily="Gadugi" FontSize="20"/>
+        <Button x:Name="btnSaveInstructions" Grid.Column="1" Grid.Row="7" Margin="65,10,10,0" Content="Save instruction" FontFamily="Gadugi" FontSize="16" Height="43" VerticalAlignment="Top" Click="btnSaveInstructions_Click"/>
+        <Button x:Name="btnDeleteInstructions" Grid.Column="2" Grid.Row="7" Margin="211,10,10,10" Content="Delete instruction" FontFamily="Gadugi" FontSize="16" Click="btnDeleteInstructions_Click"/>
+        <Button x:Name="btnSaveChanges" Grid.Column="2" Grid.Row="8" Margin="171,0,10,0" Content="Save changes" FontFamily="Gadugi" FontSize="20" Click="btnSaveChanges_Click"/>
 
 
 

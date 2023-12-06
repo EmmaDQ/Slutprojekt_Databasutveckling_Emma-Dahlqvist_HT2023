@@ -37,6 +37,17 @@
             }
         }
 
+        public string ListViewOutputFormat(string text)
+        {
+            if (!string.IsNullOrEmpty(text))
+            {
+
+            }
+
+
+            return text;
+        }
+
 
     }
 }

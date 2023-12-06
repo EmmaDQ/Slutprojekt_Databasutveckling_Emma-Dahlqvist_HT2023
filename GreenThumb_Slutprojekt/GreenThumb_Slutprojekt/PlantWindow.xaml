@@ -22,10 +22,12 @@
             <RowDefinition Height="20"/>
         </Grid.RowDefinitions>
 
-        <Button x:Name="btnSearch" Grid.Column="1" Grid.Row="2" Margin="170,70,10,120" Content="Search" FontSize="22" FontFamily="Gadugi" Click="btnSearch_Click"/>
-        <Button x:Name="btnAdd" Grid.Column="1" Grid.Row="3" Margin="10 100 110 70" BorderBrush="{x:Null}" Content="Add new plant" FontSize="20" FontFamily="Gadugi" Click="btnAdd_Click"/>
-        <Button x:Name="btnDetails" Grid.Column="1" Grid.Row="3" Grid.ColumnSpan="2" Margin="200 100 200 70" Content="Details" FontSize="20" FontFamily="Gadugi" Click="btnDetails_Click"/>
-        <Button x:Name="btnDelete" Grid.Column="2" Grid.Row="3" Margin="110 100 10 70" Content="Delete" FontSize="20" FontFamily="Gadugi" Click="btnDelete_Click"/>
+        <Button x:Name="btnSearch" Grid.Column="1" Grid.Row="2" Margin="170,40,10,151" Content="Search" FontSize="22" FontFamily="Gadugi" Click="btnSearch_Click"/>
+        <Button x:Name="btnAdd" Grid.Column="1" Grid.Row="3" Margin="21,135,21,1" BorderBrush="{x:Null}" Content="Add new plant" FontSize="20" FontFamily="Gadugi" Click="btnAdd_Click"/>
+        <Button x:Name="btnDetails" Grid.Column="2" Grid.Row="3" Margin="10,65,165,103" Content="Details" FontSize="20" FontFamily="Gadugi" Click="btnDetails_Click"/>
+        <Button x:Name="btnDelete" Grid.Column="2" Grid.Row="3" Margin="165,65,10,103" Content="Delete" FontSize="20" FontFamily="Gadugi" Click="btnDelete_Click"/>
+        <Button x:Name="btnAddToGarden" Grid.Column="2" Grid.Row="3" Margin="10,152,10,18" Content="Plant in my garden" FontSize="20" FontFamily="Gadugi" Click="btnDelete_Click"/>
+
 
         <ListView x:Name="lstPlants" Grid.Column="2" Grid.Row="1" Grid.RowSpan="3" Margin="10 100 10 180" FontFamily="Gabriola" FontSize="20" BorderBrush="{x:Null}">
             <ListView.Background>
@@ -36,8 +38,8 @@
             </ListView.Background>
         </ListView>
         <Label Grid.Column="1" Grid.Row="1" Height="100" VerticalAlignment="Top" Margin="0,30,0,0" Content="Plants" FontSize="72" FontFamily="Gabriola"/>
-        <Label Grid.Column="1" Grid.Row="1" Content="Find plant" VerticalAlignment="Bottom" HorizontalAlignment="Left" Margin="10,0,0,20" FontSize="18" FontFamily="Gadugi"/>
-        <TextBlock x:Name="lblErrorMessage" Grid.Column="1" Grid.Row="2" Text="Sorry, we don't have that plant in our register. Please press -Add new plant- if you would like to add it to the collection or choose one in the view to the right!" TextWrapping="Wrap" TextAlignment="Center" VerticalAlignment="Center" FontSize="18" Margin="30,130,30,-70" HorizontalAlignment="Center" FontFamily="Gadugi" IsEnabled="False"/>
-        <TextBox x:Name="txtSearch" Grid.Column="1" Grid.Row="1" Margin="10,220,10,-50" FontFamily="Gabriola" FontSize="18" />
+        <Label Grid.Column="1" Grid.Row="1" Content="Find plant" VerticalAlignment="Bottom" HorizontalAlignment="Left" Margin="10,0,0,42" FontSize="18" FontFamily="Gadugi"/>
+        <TextBlock x:Name="lblErrorMessage" Grid.Column="1" Grid.Row="2" Text="Sorry, we don't have that plant in our register. Please press -Add new plant- if you would like to add it to the collection or choose one in the view to the right!" TextWrapping="Wrap" TextAlignment="Center" VerticalAlignment="Top" FontSize="18" Margin="0,156,0,0" HorizontalAlignment="Center" FontFamily="Gadugi" IsEnabled="False" Grid.RowSpan="2" Width="196"/>
+        <TextBox x:Name="txtSearch" Grid.Column="1" Grid.Row="1" Margin="10,198,10,204" FontFamily="Gabriola" FontSize="18" Grid.RowSpan="2" />
     </Grid>
 </Window>
