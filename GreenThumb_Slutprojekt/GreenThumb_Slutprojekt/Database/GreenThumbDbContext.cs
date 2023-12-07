@@ -305,7 +305,6 @@ namespace GreenThumb_Slutprojekt.Database
                 .HasData(
                 new UserModel()
                 {
-                    UserId = 1,
                     UserName = "user",
                     Password = "password"
 
