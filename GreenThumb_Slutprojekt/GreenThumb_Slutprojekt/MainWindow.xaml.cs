@@ -15,7 +15,6 @@ namespace GreenThumb_Slutprojekt
             InitializeComponent();
 
 
-
         }
 
 
@@ -29,7 +28,7 @@ namespace GreenThumb_Slutprojekt
                 GreenThumbUow uow = new(context);
 
                 string userName = txtUsername.Text.Trim();
-                string password = pwbPassword.ToString();
+                string password = pwbPassword.Password.ToString();
 
 
                 if (input.IsText(userName))
@@ -44,8 +43,12 @@ namespace GreenThumb_Slutprojekt
 
                             if (ExistingUser.Password == password)
                             {
-                                PlantWindow plantWin = new PlantWindow();
+                                //TODO: show password
+
+                                PlantWindow plantWin = new PlantWindow(ExistingUser);
+
                                 plantWin.Show();
+
                                 Close();
                             }
 

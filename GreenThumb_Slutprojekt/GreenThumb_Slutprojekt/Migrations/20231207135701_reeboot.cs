@@ -4,7 +4,7 @@
 
 namespace GreenThumb_Slutprojekt.Migrations
 {
-    public partial class initialize : Migration
+    public partial class reeboot : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -123,6 +123,11 @@ namespace GreenThumb_Slutprojekt.Migrations
                 table: "Users",
                 columns: new[] { "id", "password", "user_name" },
                 values: new object[] { 1, "password", "user" });
+
+            migrationBuilder.InsertData(
+                table: "Gardens",
+                columns: new[] { "id", "name", "user_id" },
+                values: new object[] { 1, "Lovely garden", 1 });
 
             migrationBuilder.InsertData(
                 table: "Instructions",

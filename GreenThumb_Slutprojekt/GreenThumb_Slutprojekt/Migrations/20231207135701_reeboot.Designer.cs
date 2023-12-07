@@ -11,8 +11,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace GreenThumb_Slutprojekt.Migrations
 {
     [DbContext(typeof(GreenThumbDbContext))]
-    [Migration("20231206083737_takeBackAvocado")]
-    partial class takeBackAvocado
+    [Migration("20231207135701_reeboot")]
+    partial class reeboot
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -62,6 +62,14 @@ namespace GreenThumb_Slutprojekt.Migrations
                         .IsUnique();
 
                     b.ToTable("Gardens");
+
+                    b.HasData(
+                        new
+                        {
+                            GardenId = 1,
+                            Name = "Lovely garden",
+                            UserId = 1
+                        });
                 });
 
             modelBuilder.Entity("GreenThumb_Slutprojekt.Models.InstructionModel", b =>

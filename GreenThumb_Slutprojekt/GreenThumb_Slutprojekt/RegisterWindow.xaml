@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:GreenThumb_Slutprojekt"
         mc:Ignorable="d"
-        Title="RegisterWindow" Height="550" Width="800">
+        Title="RegisterWindow" Height="550" Width="800" WindowStartupLocation="CenterScreen">
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="20"/>
@@ -35,7 +35,7 @@
             </Image.OpacityMask>
         </Image>
 
-        <Canvas Grid.ColumnSpan="4" Grid.RowSpan="6" Opacity="0.6" Grid.Column="2" Margin="189,0,1,-1">
+        <Canvas Grid.ColumnSpan="3" Grid.RowSpan="6" Opacity="0.6" Grid.Column="3" Margin="0,0,1,-1">
             <Canvas.Background>
                 <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
                     <GradientStop Color="#FF06583C" Offset="1"/>
@@ -48,17 +48,17 @@
 
         <Label Grid.ColumnSpan="3" Grid.Row="2" Content="Create your account" FontFamily="Gabriola" FontSize="48" VerticalAlignment="Top" Foreground="#FF509B10" FontWeight="Bold" Height="71" IsHitTestVisible="False" Width="400" HorizontalAlignment="Left" HorizontalContentAlignment="Center" Margin="-6,48,0,0"/>
         <Label Grid.Row="3" Grid.Column="1" Content=" Username" Margin="11,8,0,74" FontSize="24" FontFamily="Gadugi" Foreground="#FF003735" HorizontalAlignment="Left"/>
-        <Label Grid.Row="3" Grid.Column="1" Content="Password" Margin="0,66,55,18" FontSize="24" FontFamily="Gadugi" Foreground="#FF003735" HorizontalAlignment="Right"/>
+        <Label Grid.Row="3" Grid.Column="1" Content="Password" Margin="0,66,55,10" FontSize="24" FontFamily="Gadugi" Foreground="#FF003735" HorizontalAlignment="Right"/>
 
         <TextBox x:Name="txtUsername" Grid.Row="3" Grid.Column="1" Margin="146,10,44,76" Grid.ColumnSpan="2" />
         <PasswordBox x:Name="pwbPassword" Grid.Row="3" Grid.Column="1" Margin="146,68,44,20" Grid.ColumnSpan="2" />
 
-        <Button x:Name="btnRegister" Grid.Row="4" Grid.Column="1" Margin="95,63,95,21" Content=" Sign in" BorderBrush="{x:Null}" Background="#FFAED079" Foreground="#FF023733" FontFamily="Gadugi" FontSize="16" Grid.ColumnSpan="2" Click="btnRegister_Click" IsDefault="True"/>
+        <Button x:Name="btnRegister" Grid.Row="4" Grid.Column="1" Margin="95,63,95,21" Content=" Register" BorderBrush="{x:Null}" Background="#FFAED079" Foreground="#FF023733" FontFamily="Gadugi" FontSize="16" Grid.ColumnSpan="2" Click="btnRegister_Click" IsDefault="True"/>
         <Label Grid.Row="3" Grid.Column="1" Content="Confirm &#xD;&#xA;password" Margin="0,108,56,0" FontSize="24" FontFamily="Gadugi" Foreground="#FF003735" HorizontalAlignment="Right" Grid.RowSpan="2" Width="112" VerticalAlignment="Top"/>
-        <PasswordBox x:Name="pwbPassword_Copy" Grid.Row="4" Grid.Column="1" Margin="146,3,44,84" Grid.ColumnSpan="2" />
+        <PasswordBox x:Name="pwbPasswordAgain" Grid.Row="4" Grid.Column="1" Margin="146,3,44,84" Grid.ColumnSpan="2" />
 
-        <Label x:Name="lblUsernameTaken" Grid.Row="3" Grid.Column="2" Content="Username taken" Margin="36,41,36,56" FontFamily="Gadugi" FontSize="14" Foreground="#FFD1984A"/>
-        <Label x:Name="lblPasswordNoMatch" Grid.Row="4" Grid.Column="1" Content="Passwords don't match" Margin="182,34,36,62" FontFamily="Gadugi" FontSize="14" Foreground="#FFD1984A" Grid.ColumnSpan="2"/>
+        <Label x:Name="lblUsernameTaken" Grid.Row="3" Grid.Column="2" Content="Username taken" Margin="36,41,36,38" FontFamily="Gadugi" FontSize="14" Foreground="#FFD1984A"/>
+        <Label x:Name="lblPasswordNoMatch" Grid.Row="4" Grid.Column="1" Content="Passwords don't match" Margin="182,34,36,41" FontFamily="Gadugi" FontSize="14" Foreground="#FFD1984A" Grid.ColumnSpan="2"/>
 
     </Grid>
 </Window>

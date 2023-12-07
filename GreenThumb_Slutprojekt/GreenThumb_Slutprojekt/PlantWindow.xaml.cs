@@ -13,13 +13,102 @@ namespace GreenThumb_Slutprojekt
     {
         private InputManager input = new();
 
-        string newPlant = "";
+        private string newPlant = "";
+
+        private UserModel? user = null;
+
+        public static List<string> diffGardens = new List<string>()
+        {
+            "Beautiful garden",
+            "Lovely garden",
+            "Soothing garden",
+            "Tasty garden",
+            "Shady garden",
+            "Tranquil garden"
+
+
+
+        };
+
         public PlantWindow()
         {
             InitializeComponent();
 
             UpdateUI();
 
+        }
+        public PlantWindow(UserModel user)
+        {
+            InitializeComponent();
+
+            this.user = user;
+
+            UpdateUI();
+
+        }
+
+        public PlantWindow(UserModel user, string newUser)
+        {
+            InitializeComponent();
+
+            this.user = user;
+
+            UpdateUI();
+
+
+            wait StartUpAsync();
+
+
+
+        }
+
+        private async Task StartUpAsync()
+        {
+            MessageBoxResult m = MessageBox.Show($"Welcome {user.UserName}!\nI see that you're missing a garden! Press the \"Yes\"-button to generate one and press \"No\" to delete your account", "New account created", MessageBoxButton.YesNo);
+
+            using (GreenThumbDbContext context = new())
+            {
+                GreenThumbUow uow = new(context);
+
+                if (m == MessageBoxResult.Yes)
+                {
+
+                    Random r = new();
+
+                    int choosingGarden = r.Next(diffGardens.Count);
+                    string garden = diffGardens[choosingGarden];
+
+                    GardenModel newGarden = new GardenModel()
+                    {
+                        Name = garden,
+                        UserId = user.UserId
+
+                    };
+
+                    uow.GardenRepo.Add(newGarden);
+
+                    uow.SaveChanges();
+
+
+                }
+
+                else
+                {
+                    uow.UserRepo.Delete(user.UserId);
+
+                    uow.SaveChanges();
+
+                    MainWindow mainWin = new();
+
+                    mainWin.Show();
+                    Close();
+
+
+                }
+
+
+
+            }
         }
 
         private void UpdateUI()

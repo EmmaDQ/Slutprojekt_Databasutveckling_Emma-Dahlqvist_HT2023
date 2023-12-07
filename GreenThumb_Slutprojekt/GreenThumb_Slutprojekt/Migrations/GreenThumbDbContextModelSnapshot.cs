@@ -60,6 +60,14 @@ namespace GreenThumb_Slutprojekt.Migrations
                         .IsUnique();
 
                     b.ToTable("Gardens");
+
+                    b.HasData(
+                        new
+                        {
+                            GardenId = 1,
+                            Name = "Lovely garden",
+                            UserId = 1
+                        });
                 });
 
             modelBuilder.Entity("GreenThumb_Slutprojekt.Models.InstructionModel", b =>

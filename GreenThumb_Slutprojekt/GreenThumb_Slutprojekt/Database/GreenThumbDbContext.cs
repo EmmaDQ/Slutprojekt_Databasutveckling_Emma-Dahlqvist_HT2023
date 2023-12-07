@@ -26,6 +26,19 @@ namespace GreenThumb_Slutprojekt.Database
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             base.OnModelCreating(modelBuilder);
+            /*
+                        modelBuilder.Entity<UserModel>()
+                            .HasOne(e => e.Garden)
+                            .WithOne(e => e.User)
+                            .HasForeignKey<GardenModel>(e => e.UserId)
+                            .IsRequired();
+
+                        modelBuilder.Entity<GardenModel>()
+                            .HasOne(e => e.User)
+                            .WithOne(e => e.Garden)
+                            .HasForeignKey<GardenModel>(e => e.UserId)
+                            .IsRequired();
+            */
 
             modelBuilder.Entity<PlantModel>()
                 .HasData(
@@ -305,10 +318,22 @@ namespace GreenThumb_Slutprojekt.Database
                 .HasData(
                 new UserModel()
                 {
+                    UserId = 1,
                     UserName = "user",
                     Password = "password"
 
                 });
+
+            modelBuilder.Entity<GardenModel>()
+                .HasData(
+                new GardenModel()
+                {
+                    GardenId = 1,
+                    Name = "Lovely garden",
+                    UserId = 1
+                }
+
+                );
 
 
 

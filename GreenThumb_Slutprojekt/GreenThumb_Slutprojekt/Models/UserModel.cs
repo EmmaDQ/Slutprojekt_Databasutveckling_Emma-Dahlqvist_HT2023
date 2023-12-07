@@ -7,6 +7,8 @@ namespace GreenThumb_Slutprojekt.Models
     public class UserModel
     {
         [Key]
+        [Column("id")]
+        public int UserId { get; set; }
         [Column("user_name")]
         public string UserName { get; set; } = null!;
         [Column("password")]
