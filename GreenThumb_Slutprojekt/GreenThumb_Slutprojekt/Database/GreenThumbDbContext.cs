@@ -1,12 +1,18 @@
-﻿using GreenThumb_Slutprojekt.Models;
+﻿using EntityFrameworkCore.EncryptColumn.Extension;
+using EntityFrameworkCore.EncryptColumn.Interfaces;
+using EntityFrameworkCore.EncryptColumn.Util;
+using GreenThumb_Slutprojekt.Manager;
+using GreenThumb_Slutprojekt.Models;
 using Microsoft.EntityFrameworkCore;
 
 namespace GreenThumb_Slutprojekt.Database
 {
     internal class GreenThumbDbContext : DbContext
     {
+        private readonly IEncryptionProvider _provider;
         public GreenThumbDbContext()
         {
+            _provider = new GenerateEncryptionProvider(KeyManager.GetEncryptionKey());
         }
 
         public DbSet<PlantModel> Plants { get; set; }
@@ -26,19 +32,8 @@ namespace GreenThumb_Slutprojekt.Database
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             base.OnModelCreating(modelBuilder);
-            /*
-                        modelBuilder.Entity<UserModel>()
-                            .HasOne(e => e.Garden)
-                            .WithOne(e => e.User)
-                            .HasForeignKey<GardenModel>(e => e.UserId)
-                            .IsRequired();
 
-                        modelBuilder.Entity<GardenModel>()
-                            .HasOne(e => e.User)
-                            .WithOne(e => e.Garden)
-                            .HasForeignKey<GardenModel>(e => e.UserId)
-                            .IsRequired();
-            */
+            modelBuilder.UseEncryption(_provider);
 
             modelBuilder.Entity<PlantModel>()
                 .HasData(

@@ -3,6 +3,7 @@ using GreenThumb_Slutprojekt.Database;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -10,9 +11,10 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace GreenThumb_Slutprojekt.Migrations
 {
     [DbContext(typeof(GreenThumbDbContext))]
-    partial class GreenThumbDbContextModelSnapshot : ModelSnapshot
+    [Migration("20231208121909_rebootTestOfCryptation")]
+    partial class rebootTestOfCryptation
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder

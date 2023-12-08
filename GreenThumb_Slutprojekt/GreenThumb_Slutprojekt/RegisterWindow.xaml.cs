@@ -23,8 +23,6 @@ namespace GreenThumb_Slutprojekt
             "Shady garden",
             "Tranquil garden"
 
-
-
         };
 
 
