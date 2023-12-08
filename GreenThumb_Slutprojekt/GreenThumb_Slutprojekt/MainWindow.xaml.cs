@@ -45,7 +45,9 @@ namespace GreenThumb_Slutprojekt
                             {
                                 //TODO: show password
 
-                                PlantWindow plantWin = new PlantWindow(ExistingUser);
+                                InputManager.LoggedInUser = ExistingUser;
+
+                                PlantWindow plantWin = new PlantWindow();
 
                                 plantWin.Show();
 

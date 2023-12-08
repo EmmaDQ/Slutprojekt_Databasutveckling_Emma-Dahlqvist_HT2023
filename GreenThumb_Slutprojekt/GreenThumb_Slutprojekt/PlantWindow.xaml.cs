@@ -15,20 +15,9 @@ namespace GreenThumb_Slutprojekt
 
         private string newPlant = "";
 
-        private UserModel? user = null;
-
-        public static List<string> diffGardens = new List<string>()
-        {
-            "Beautiful garden",
-            "Lovely garden",
-            "Soothing garden",
-            "Tasty garden",
-            "Shady garden",
-            "Tranquil garden"
+        private UserModel? _user = InputManager.LoggedInUser;
 
 
-
-        };
 
         public PlantWindow()
         {
@@ -37,85 +26,27 @@ namespace GreenThumb_Slutprojekt
             UpdateUI();
 
         }
-        public PlantWindow(UserModel user)
+
+        public PlantWindow(string newUser)
         {
             InitializeComponent();
-
-            this.user = user;
-
-            UpdateUI();
-
-        }
-
-        public PlantWindow(UserModel user, string newUser)
-        {
-            InitializeComponent();
-
-            this.user = user;
 
             UpdateUI();
 
 
-            wait StartUpAsync();
-
-
 
         }
 
-        private async Task StartUpAsync()
-        {
-            MessageBoxResult m = MessageBox.Show($"Welcome {user.UserName}!\nI see that you're missing a garden! Press the \"Yes\"-button to generate one and press \"No\" to delete your account", "New account created", MessageBoxButton.YesNo);
-
-            using (GreenThumbDbContext context = new())
-            {
-                GreenThumbUow uow = new(context);
-
-                if (m == MessageBoxResult.Yes)
-                {
-
-                    Random r = new();
-
-                    int choosingGarden = r.Next(diffGardens.Count);
-                    string garden = diffGardens[choosingGarden];
-
-                    GardenModel newGarden = new GardenModel()
-                    {
-                        Name = garden,
-                        UserId = user.UserId
-
-                    };
-
-                    uow.GardenRepo.Add(newGarden);
-
-                    uow.SaveChanges();
 
 
-                }
-
-                else
-                {
-                    uow.UserRepo.Delete(user.UserId);
-
-                    uow.SaveChanges();
-
-                    MainWindow mainWin = new();
-
-                    mainWin.Show();
-                    Close();
-
-
-                }
-
-
-
-            }
-        }
 
         private void UpdateUI()
         {
             lstPlants.Items.Clear();
             lblErrorMessage.Visibility = Visibility.Hidden;
             txtSearch.Text = "";
+
+
 
 
 
@@ -134,7 +65,19 @@ namespace GreenThumb_Slutprojekt
                     item.Content = plant.Name;
 
                     lstPlants.Items.Add(item);
+
+
                 }
+
+
+
+                if (_user != null)
+                {
+                    var garden = context.Gardens.First(garden => garden.UserId == _user.UserId);
+
+                    btnMyGarden.Content = garden.Name;
+                }
+
 
             }
 
@@ -299,6 +242,11 @@ namespace GreenThumb_Slutprojekt
 
 
             }
+
+        }
+
+        private void btnMyGarden_Click(object sender, RoutedEventArgs e)
+        {
 
         }
     }
