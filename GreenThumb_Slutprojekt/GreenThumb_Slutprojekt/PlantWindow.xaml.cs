@@ -16,6 +16,7 @@ namespace GreenThumb_Slutprojekt
         private string newPlant = "";
 
         private UserModel? _user = InputManager.LoggedInUser;
+        private GardenModel _garden = null;
 
 
 
@@ -76,6 +77,8 @@ namespace GreenThumb_Slutprojekt
                     var garden = context.Gardens.First(garden => garden.UserId == _user.UserId);
 
                     btnMyGarden.Content = garden.Name;
+
+                    _garden = garden;
                 }
 
 
@@ -247,7 +250,30 @@ namespace GreenThumb_Slutprojekt
 
         private void btnMyGarden_Click(object sender, RoutedEventArgs e)
         {
+            GardenWindow gardenWin = new();
+            gardenWin.Show();
 
+            Close();
+        }
+
+        private void btnAddToGarden_Click(object sender, RoutedEventArgs e)
+        {
+            using (GreenThumbDbContext context = new())
+            {
+                GreenThumbUow uow = new(context);
+
+                ListViewItem selectedItem = (ListViewItem)lstPlants.SelectedItem;
+                PlantModel addingPlant = (PlantModel)selectedItem.Tag;
+
+
+                if (selectedItem != null)
+                {
+                    _garden.Plants.Add(addingPlant);
+                    addingPlant.Gardens.Add(_garden);
+                    uow.SaveChanges();
+                    MessageBox.Show($"{addingPlant.Name} has been added to your garden!");
+                }
+            }
         }
     }
 }

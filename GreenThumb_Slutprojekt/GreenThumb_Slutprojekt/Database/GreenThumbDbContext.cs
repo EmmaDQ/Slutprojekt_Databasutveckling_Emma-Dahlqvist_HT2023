@@ -35,6 +35,7 @@ namespace GreenThumb_Slutprojekt.Database
 
             modelBuilder.UseEncryption(_provider);
 
+
             modelBuilder.Entity<PlantModel>()
                 .HasData(
                 new PlantModel()

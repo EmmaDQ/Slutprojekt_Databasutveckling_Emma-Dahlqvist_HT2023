@@ -14,6 +14,7 @@
     <None Remove="green-thumb-logo.png" />
     <None Remove="Japanese_garden_in_Ramoji_Film_City.jpg" />
     <None Remove="mio-ito-DaGIjXNl5oA-unsplash.jpg" />
+    <None Remove="MyGarden.png" />
   </ItemGroup>
 
   <ItemGroup>
@@ -36,6 +37,7 @@
     <Resource Include="green-thumb-logo.png" />
     <Resource Include="Japanese_garden_in_Ramoji_Film_City.jpg" />
     <Resource Include="mio-ito-DaGIjXNl5oA-unsplash.jpg" />
+    <Resource Include="MyGarden.png" />
   </ItemGroup>
 
 </Project>
