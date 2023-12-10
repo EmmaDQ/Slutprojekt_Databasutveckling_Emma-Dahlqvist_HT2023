@@ -19,6 +19,8 @@ namespace GreenThumb_Slutprojekt.Database
         public DbSet<InstructionModel> Instructions { get; set; }
         public DbSet<GardenModel> Gardens { get; set; }
         public DbSet<UserModel> Users { get; set; }
+        public DbSet<GardenModelPlantModel> GardenPlants { get; set; }
+
 
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
@@ -34,6 +36,11 @@ namespace GreenThumb_Slutprojekt.Database
             base.OnModelCreating(modelBuilder);
 
             modelBuilder.UseEncryption(_provider);
+
+
+            /*modelBuilder.Entity<GardenModelPlantModel>()
+                .HasKey(gp => new { gp.GPId });*/
+
 
 
             modelBuilder.Entity<PlantModel>()

@@ -21,21 +21,6 @@ namespace GreenThumb_Slutprojekt.Migrations
 
             SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder, 1L, 1);
 
-            modelBuilder.Entity("GardenModelPlantModel", b =>
-                {
-                    b.Property<int>("GardensGardenId")
-                        .HasColumnType("int");
-
-                    b.Property<int>("PlantsPlantId")
-                        .HasColumnType("int");
-
-                    b.HasKey("GardensGardenId", "PlantsPlantId");
-
-                    b.HasIndex("PlantsPlantId");
-
-                    b.ToTable("GardenModelPlantModel");
-                });
-
             modelBuilder.Entity("GreenThumb_Slutprojekt.Models.GardenModel", b =>
                 {
                     b.Property<int>("GardenId")
@@ -68,6 +53,32 @@ namespace GreenThumb_Slutprojekt.Migrations
                             Name = "Lovely garden",
                             UserId = 1
                         });
+                });
+
+            modelBuilder.Entity("GreenThumb_Slutprojekt.Models.GardenModelPlantModel", b =>
+                {
+                    b.Property<int>("GPId")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasColumnName("id");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("GPId"), 1L, 1);
+
+                    b.Property<int>("GardenId")
+                        .HasColumnType("int")
+                        .HasColumnName("garden_id");
+
+                    b.Property<int>("PlantId")
+                        .HasColumnType("int")
+                        .HasColumnName("plant_id");
+
+                    b.HasKey("GPId");
+
+                    b.HasIndex("GardenId");
+
+                    b.HasIndex("PlantId");
+
+                    b.ToTable("GardenPlants");
                 });
 
             modelBuilder.Entity("GreenThumb_Slutprojekt.Models.InstructionModel", b =>
@@ -382,21 +393,6 @@ namespace GreenThumb_Slutprojekt.Migrations
                         });
                 });
 
-            modelBuilder.Entity("GardenModelPlantModel", b =>
-                {
-                    b.HasOne("GreenThumb_Slutprojekt.Models.GardenModel", null)
-                        .WithMany()
-                        .HasForeignKey("GardensGardenId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.HasOne("GreenThumb_Slutprojekt.Models.PlantModel", null)
-                        .WithMany()
-                        .HasForeignKey("PlantsPlantId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-                });
-
             modelBuilder.Entity("GreenThumb_Slutprojekt.Models.GardenModel", b =>
                 {
                     b.HasOne("GreenThumb_Slutprojekt.Models.UserModel", "User")
@@ -406,6 +402,25 @@ namespace GreenThumb_Slutprojekt.Migrations
                         .IsRequired();
 
                     b.Navigation("User");
+                });
+
+            modelBuilder.Entity("GreenThumb_Slutprojekt.Models.GardenModelPlantModel", b =>
+                {
+                    b.HasOne("GreenThumb_Slutprojekt.Models.GardenModel", "Garden")
+                        .WithMany("GardenPlants")
+                        .HasForeignKey("GardenId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("GreenThumb_Slutprojekt.Models.PlantModel", "Plant")
+                        .WithMany("GardenPlants")
+                        .HasForeignKey("PlantId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Garden");
+
+                    b.Navigation("Plant");
                 });
 
             modelBuilder.Entity("GreenThumb_Slutprojekt.Models.InstructionModel", b =>
@@ -419,8 +434,15 @@ namespace GreenThumb_Slutprojekt.Migrations
                     b.Navigation("Plant");
                 });
 
+            modelBuilder.Entity("GreenThumb_Slutprojekt.Models.GardenModel", b =>
+                {
+                    b.Navigation("GardenPlants");
+                });
+
             modelBuilder.Entity("GreenThumb_Slutprojekt.Models.PlantModel", b =>
                 {
+                    b.Navigation("GardenPlants");
+
                     b.Navigation("Instructions");
                 });
 

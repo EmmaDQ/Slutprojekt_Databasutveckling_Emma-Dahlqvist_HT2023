@@ -11,32 +11,17 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace GreenThumb_Slutprojekt.Migrations
 {
     [DbContext(typeof(GreenThumbDbContext))]
-    [Migration("20231207135701_reeboot")]
-    partial class reeboot
+    [Migration("20231210165801_reboot")]
+    partial class reboot
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
-                .HasAnnotation("ProductVersion", "6.0.25")
+                .HasAnnotation("ProductVersion", "6.0.8")
                 .HasAnnotation("Relational:MaxIdentifierLength", 128);
 
             SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder, 1L, 1);
-
-            modelBuilder.Entity("GardenModelPlantModel", b =>
-                {
-                    b.Property<int>("GardensGardenId")
-                        .HasColumnType("int");
-
-                    b.Property<int>("PlantsPlantId")
-                        .HasColumnType("int");
-
-                    b.HasKey("GardensGardenId", "PlantsPlantId");
-
-                    b.HasIndex("PlantsPlantId");
-
-                    b.ToTable("GardenModelPlantModel");
-                });
 
             modelBuilder.Entity("GreenThumb_Slutprojekt.Models.GardenModel", b =>
                 {
@@ -70,6 +55,32 @@ namespace GreenThumb_Slutprojekt.Migrations
                             Name = "Lovely garden",
                             UserId = 1
                         });
+                });
+
+            modelBuilder.Entity("GreenThumb_Slutprojekt.Models.GardenModelPlantModel", b =>
+                {
+                    b.Property<int>("GPId")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasColumnName("id");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("GPId"), 1L, 1);
+
+                    b.Property<int>("GardenId")
+                        .HasColumnType("int")
+                        .HasColumnName("garden_id");
+
+                    b.Property<int>("PlantId")
+                        .HasColumnType("int")
+                        .HasColumnName("plant_id");
+
+                    b.HasKey("GPId");
+
+                    b.HasIndex("GardenId");
+
+                    b.HasIndex("PlantId");
+
+                    b.ToTable("GardenPlants");
                 });
 
             modelBuilder.Entity("GreenThumb_Slutprojekt.Models.InstructionModel", b =>
@@ -379,24 +390,9 @@ namespace GreenThumb_Slutprojekt.Migrations
                         new
                         {
                             UserId = 1,
-                            Password = "password",
+                            Password = "iSG2P/e++yYRlkujpu84zA==",
                             UserName = "user"
                         });
-                });
-
-            modelBuilder.Entity("GardenModelPlantModel", b =>
-                {
-                    b.HasOne("GreenThumb_Slutprojekt.Models.GardenModel", null)
-                        .WithMany()
-                        .HasForeignKey("GardensGardenId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.HasOne("GreenThumb_Slutprojekt.Models.PlantModel", null)
-                        .WithMany()
-                        .HasForeignKey("PlantsPlantId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
                 });
 
             modelBuilder.Entity("GreenThumb_Slutprojekt.Models.GardenModel", b =>
@@ -410,6 +406,25 @@ namespace GreenThumb_Slutprojekt.Migrations
                     b.Navigation("User");
                 });
 
+            modelBuilder.Entity("GreenThumb_Slutprojekt.Models.GardenModelPlantModel", b =>
+                {
+                    b.HasOne("GreenThumb_Slutprojekt.Models.GardenModel", "Garden")
+                        .WithMany("GardenPlants")
+                        .HasForeignKey("GardenId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("GreenThumb_Slutprojekt.Models.PlantModel", "Plant")
+                        .WithMany("GardenPlants")
+                        .HasForeignKey("PlantId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Garden");
+
+                    b.Navigation("Plant");
+                });
+
             modelBuilder.Entity("GreenThumb_Slutprojekt.Models.InstructionModel", b =>
                 {
                     b.HasOne("GreenThumb_Slutprojekt.Models.PlantModel", "Plant")
@@ -421,8 +436,15 @@ namespace GreenThumb_Slutprojekt.Migrations
                     b.Navigation("Plant");
                 });
 
+            modelBuilder.Entity("GreenThumb_Slutprojekt.Models.GardenModel", b =>
+                {
+                    b.Navigation("GardenPlants");
+                });
+
             modelBuilder.Entity("GreenThumb_Slutprojekt.Models.PlantModel", b =>
                 {
+                    b.Navigation("GardenPlants");
+
                     b.Navigation("Instructions");
                 });
 

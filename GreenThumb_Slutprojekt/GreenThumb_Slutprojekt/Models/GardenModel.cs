@@ -13,7 +13,7 @@ namespace GreenThumb_Slutprojekt.Models
         [Column("user_id")]
         public int UserId { get; set; }
         public UserModel User { get; set; } = null!;
-        public List<PlantModel> Plants { get; set; } = new();
+        public List<GardenModelPlantModel> GardenPlants { get; } = new();
 
 
 

@@ -28,17 +28,6 @@ namespace GreenThumb_Slutprojekt
 
         }
 
-        public PlantWindow(string newUser)
-        {
-            InitializeComponent();
-
-            UpdateUI();
-
-
-
-        }
-
-
 
 
         private void UpdateUI()
@@ -46,9 +35,6 @@ namespace GreenThumb_Slutprojekt
             lstPlants.Items.Clear();
             lblErrorMessage.Visibility = Visibility.Hidden;
             txtSearch.Text = "";
-
-
-
 
 
 
@@ -265,13 +251,25 @@ namespace GreenThumb_Slutprojekt
                 ListViewItem selectedItem = (ListViewItem)lstPlants.SelectedItem;
                 PlantModel addingPlant = (PlantModel)selectedItem.Tag;
 
+                var gpList = uow.GardenPlantRepo.GetAll().ToList();
+
+
 
                 if (selectedItem != null)
                 {
-                    _garden.Plants.Add(addingPlant);
-                    addingPlant.Gardens.Add(_garden);
+
+                    GardenModelPlantModel pl1 = new GardenModelPlantModel() { GardenId = _garden.GardenId, PlantId = addingPlant.PlantId };
+                    uow.GardenPlantRepo.Add(pl1);
+
+                    //_garden.Plants.Add(addingPlant);
+                    //addingPlant.Gardens.Add(_garden);
+
                     uow.SaveChanges();
-                    MessageBox.Show($"{addingPlant.Name} has been added to your garden!");
+
+                    MessageBox.Show($"{addingPlant.Name} has been added to your {_garden.Name}!");
+
+
+
                 }
             }
         }

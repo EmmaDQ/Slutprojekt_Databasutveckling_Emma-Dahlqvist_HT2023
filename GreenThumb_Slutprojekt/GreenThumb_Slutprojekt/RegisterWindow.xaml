@@ -50,12 +50,12 @@
         <Label Grid.Row="3" Grid.Column="1" Content=" Username" Margin="11,8,0,74" FontSize="24" FontFamily="Gadugi" Foreground="#FF003735" HorizontalAlignment="Left"/>
         <Label Grid.Row="3" Grid.Column="1" Content="Password" Margin="0,66,55,10" FontSize="24" FontFamily="Gadugi" Foreground="#FF003735" HorizontalAlignment="Right"/>
 
-        <TextBox x:Name="txtUsername" Grid.Row="3" Grid.Column="1" Margin="146,10,44,76" Grid.ColumnSpan="2" />
+        <TextBox x:Name="txtUsername" Grid.Row="3" Grid.Column="1" Margin="146,10,44,76" Grid.ColumnSpan="2" FontSize="20" FontFamily="Gadugi" Foreground="#FF509B10" />
         <PasswordBox x:Name="pwbPassword" Grid.Row="3" Grid.Column="1" Margin="146,68,44,20" Grid.ColumnSpan="2" />
 
         <Button x:Name="btnRegister" Grid.Row="4" Grid.Column="1" Margin="95,63,95,21" Content=" Register" BorderBrush="{x:Null}" Background="#FFAED079" Foreground="#FF023733" FontFamily="Gadugi" FontSize="16" Grid.ColumnSpan="2" Click="btnRegister_Click" IsDefault="True"/>
         <Label Grid.Row="3" Grid.Column="1" Content="Confirm &#xD;&#xA;password" Margin="0,108,56,0" FontSize="24" FontFamily="Gadugi" Foreground="#FF003735" HorizontalAlignment="Right" Grid.RowSpan="2" Width="112" VerticalAlignment="Top"/>
-        <PasswordBox x:Name="pwbPasswordAgain" Grid.Row="4" Grid.Column="1" Margin="146,3,44,84" Grid.ColumnSpan="2" />
+        <PasswordBox x:Name="pwbPasswordAgain" Grid.Row="4" Grid.Column="1" Margin="146,3,44,89" Grid.ColumnSpan="2" />
 
         <Label x:Name="lblUsernameTaken" Grid.Row="3" Grid.Column="2" Content="Username taken" Margin="36,41,36,38" FontFamily="Gadugi" FontSize="14" Foreground="#FFD1984A"/>
         <Label x:Name="lblPasswordNoMatch" Grid.Row="4" Grid.Column="1" Content="Passwords don't match" Margin="182,34,36,41" FontFamily="Gadugi" FontSize="14" Foreground="#FFD1984A" Grid.ColumnSpan="2"/>

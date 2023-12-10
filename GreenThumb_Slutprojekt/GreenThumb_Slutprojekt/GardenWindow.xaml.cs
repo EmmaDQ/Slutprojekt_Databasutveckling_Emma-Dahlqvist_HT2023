@@ -18,13 +18,18 @@ namespace GreenThumb_Slutprojekt
 
             using (GreenThumbDbContext context = new())
             {
+                GreenThumbUow uow = new(context);
+
                 var garden = context.Gardens.First(g => g.UserId == user.UserId);
                 lblMyGarden.Content = $"My {garden.Name}";
 
-                var plantList = garden.Plants.ToList();
+                var gardenPlantList = uow.GardenPlantRepo.GetAll().Where(gp => gp.GardenId == garden.GardenId).ToList();
 
-                foreach (var plant in plantList)
+                foreach (var gp in gardenPlantList)
                 {
+
+                    PlantModel plant = context.Plants.First(p => p.PlantId == gp.PlantId);
+
                     ListViewItem item = new();
                     item.Tag = plant;
                     item.Content = plant.Name;
