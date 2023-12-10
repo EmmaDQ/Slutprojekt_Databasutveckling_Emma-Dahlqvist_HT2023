@@ -10,6 +10,7 @@ namespace GreenThumb_Slutprojekt.Database
         public GreenThumbRepository<InstructionModel> InstructionRepo { get; }
         public GreenThumbRepository<GardenModel> GardenRepo { get; }
         public GreenThumbRepository<UserModel> UserRepo { get; }
+        public GreenThumbRepository<GardenModelPlantModel> GardenPlantRepo { get; }
 
         public GreenThumbUow(GreenThumbDbContext context)
         {
@@ -18,6 +19,7 @@ namespace GreenThumb_Slutprojekt.Database
             InstructionRepo = new(context);
             GardenRepo = new(context);
             UserRepo = new(context);
+            GardenPlantRepo = new(context);
         }
 
         public void SaveChanges()

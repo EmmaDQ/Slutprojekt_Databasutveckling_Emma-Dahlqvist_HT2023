@@ -1,0 +1,25 @@
+https://github.com/EmmaDQ/Slutprojekt_Databasutveckling_Emma-Dahlqvist_HT2023.git 
+
+
+Emma Dahlqvist_GreenThumb slutuppgift 
+
+
+Jag valde att göra ett generellt reposatory då jag tänkte att det var många modeller som skulle behandlas och de hade liknande behov och sätt att göra det på. Jag la även till ett unit of work för att hantera repositoryt, mest då jag tänker att det blir lite färre steg och smidigare att använda då man enkelt kan kalla på metoderna i repository genom att skapa en instans av uow istället för individuella repon. Mindre steg att ta när man väl kodar och färre classer att skapa. 
+
+Jag hade problem med mina many to many relationener mellan garden och plant. Jag gjorde först ett autogenererat joint-table men fick problem när jag skulle lägga till objekt där i. Då det inte finns något att referera till i contexten löste jag inte hur det skulle gå till. Jag la till motsatt objekt i den andra listan när jag skulle skapa ett nytt objekt (ett plant-objekt i gardenlistan och ett garden-objekt i plantlistan) men det genererades inget nytt joint-objekt när man anropade "SaveChanges()". Jag har missat något grundläggande och sökte svar på internet utan framgång. Det jag gjorde för att lösa problemet var att lägga till context i GreenThumbDbContext classen för relationerna och i repositiry samt UOW:n. Detta gjorde att jag kunde anropa tabellen och lägga till objekt på samma sätt som med de andra tabellerna.  
+
+Jag ville att det skulle gå att lägga till flera plantor i en garden, där av valde jag att ha en egen id som primary key istället för en combined key från garden id och plant id. På detta sätt kan kombinationerna av plants och gardens upprepas då id:t fortsätter att förhålla sig unikt. 
+
+Jag har skapat en InputManager för att hantera återkommande metoder i code-behind:en för alla fönster. Där valde jag att använda en statisk user som sätts när man loggar in eller registrerar en ny användare. Där finns även en bool metod för att kolla så att texten som skickas till metoden inte är empty or null.  
+
+Jag valde att sätta forein key på garden-sidan i min one to one relation, så att det skulle gå att skapa en användare först utan en garden. När användaren registrerar ett konto kommer det upp en fråga om att generera en garden eller ta bort kontot samt logga ut. Beroende på svaret man klickar i i messageboxen så händer det olika saker. Jag kollar svaret i en if-sats som kollar om svaret är yes eller no. Om yes, genereras en ny garden som har användarens id. Alla garden har ett namn som genereras från en statisk lista i register window genom att slumpa ut ett nummer inom antalet artiklar i listan samt plocka ut motsvarigheten genom indexering. 
+Om man har svarat no kommer den nya användaren att tas bort, inloggad användare i InputManager sätts till null, fönstret stängs och man kommer tillbaka till signin-sidan.  
+
+Jag har försökt att jobba mycket med feedback som ska ske när användaren gör val. Det kommer fram felmeddelanden om information är fel eller saknas. När man skapar ett konto kommer det fram text när användarnamnet är taget och när lösenorden inte matchar varandra.  
+Plantor som läggs till sätts alltid namnet med stor bokstav för att få listorna enhetliga vid presentation.  
+Vid delete av en planta kommer det upp en extra förfrågan om man är säkert att man handlat rätt. Även här sker det olika saker baserat på ett yes eller no.   
+
+Om jag hade jobbat vidare med uppgiften skulle jag fortsatt med designen i de olika fönstren som kommer efter inloggning, få dom enhetliga.  
+Jag hade velat implementera update funktionen som var "nice to have" i details window och jag hade en tanke kring att ha visuella representationer av alla plantor som fanns i garden. Bonus hade varit om jag lyckats få dom interaktiva så att användaren hade kunnat flytta runt dom i sin garden.
+
+  

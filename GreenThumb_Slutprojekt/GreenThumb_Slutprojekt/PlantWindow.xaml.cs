@@ -13,7 +13,13 @@ namespace GreenThumb_Slutprojekt
     {
         private InputManager input = new();
 
-        string newPlant = "";
+        private string newPlant = "";
+
+        private UserModel? _user = InputManager.LoggedInUser;
+        private GardenModel _garden = null;
+
+
+
         public PlantWindow()
         {
             InitializeComponent();
@@ -22,11 +28,15 @@ namespace GreenThumb_Slutprojekt
 
         }
 
+
+
         private void UpdateUI()
         {
             lstPlants.Items.Clear();
             lblErrorMessage.Visibility = Visibility.Hidden;
             txtSearch.Text = "";
+
+
 
 
 
@@ -45,7 +55,21 @@ namespace GreenThumb_Slutprojekt
                     item.Content = plant.Name;
 
                     lstPlants.Items.Add(item);
+
+
                 }
+
+
+
+                if (_user != null)
+                {
+                    var garden = context.Gardens.First(garden => garden.UserId == _user.UserId);
+
+                    btnMyGarden.Content = garden.Name;
+
+                    _garden = garden;
+                }
+
 
             }
 
@@ -211,6 +235,46 @@ namespace GreenThumb_Slutprojekt
 
             }
 
+        }
+
+        private void btnMyGarden_Click(object sender, RoutedEventArgs e)
+        {
+            GardenWindow gardenWin = new();
+            gardenWin.Show();
+
+            Close();
+        }
+
+        private void btnAddToGarden_Click(object sender, RoutedEventArgs e)
+        {
+            using (GreenThumbDbContext context = new())
+            {
+                GreenThumbUow uow = new(context);
+
+                ListViewItem selectedItem = (ListViewItem)lstPlants.SelectedItem;
+                PlantModel addingPlant = (PlantModel)selectedItem.Tag;
+
+                var gpList = uow.GardenPlantRepo.GetAll().ToList();
+
+
+
+                if (selectedItem != null)
+                {
+
+                    GardenModelPlantModel pl1 = new GardenModelPlantModel() { GardenId = _garden.GardenId, PlantId = addingPlant.PlantId };
+                    uow.GardenPlantRepo.Add(pl1);
+
+                    //_garden.Plants.Add(addingPlant);
+                    //addingPlant.Gardens.Add(_garden);
+
+                    uow.SaveChanges();
+
+                    MessageBox.Show($"{addingPlant.Name} has been added to your {_garden.Name}!");
+
+
+
+                }
+            }
         }
     }
 }

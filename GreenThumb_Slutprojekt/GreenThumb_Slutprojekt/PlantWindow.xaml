@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:GreenThumb_Slutprojekt"
         mc:Ignorable="d"
-        Title="PlantWindow" Height="750" Width="600" WindowStartupLocation="CenterScreen">
+        Title="PlantWindow" Height="750" Width="800" WindowStartupLocation="CenterScreen">
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="20"/>
@@ -22,24 +22,19 @@
             <RowDefinition Height="20"/>
         </Grid.RowDefinitions>
 
-        <Button x:Name="btnSearch" Grid.Column="1" Grid.Row="2" Margin="170,40,10,151" Content="Search" FontSize="22" FontFamily="Gadugi" Click="btnSearch_Click"/>
-        <Button x:Name="btnAdd" Grid.Column="1" Grid.Row="3" Margin="21,135,21,1" BorderBrush="{x:Null}" Content="Add new plant" FontSize="20" FontFamily="Gadugi" Click="btnAdd_Click"/>
-        <Button x:Name="btnDetails" Grid.Column="2" Grid.Row="3" Margin="10,65,165,103" Content="Details" FontSize="20" FontFamily="Gadugi" Click="btnDetails_Click"/>
-        <Button x:Name="btnDelete" Grid.Column="2" Grid.Row="3" Margin="165,65,10,103" Content="Delete" FontSize="20" FontFamily="Gadugi" Click="btnDelete_Click"/>
-        <Button x:Name="btnAddToGarden" Grid.Column="2" Grid.Row="3" Margin="10,152,10,18" Content="Plant in my garden" FontSize="20" FontFamily="Gadugi" Click="btnDelete_Click"/>
+        <Button x:Name="btnSearch" Grid.Column="1" Grid.Row="2" Margin="170,19,10,172" Content="Search" FontSize="22" FontFamily="Gadugi" Click="btnSearch_Click" Background="#FF7EB587" Foreground="White" BorderBrush="{x:Null}"/>
+        <Button x:Name="btnAdd" Grid.Column="1" Grid.Row="3" Margin="21,114,21,22" BorderBrush="{x:Null}" Content="Add new plant" FontSize="30" FontFamily="Gadugi" Click="btnAdd_Click" Background="#FF7EB587" FontWeight="Bold" Foreground="White"/>
+        <Button x:Name="btnDetails" Grid.Column="2" Grid.Row="3" Margin="10,44,215,124" Content="Details" FontSize="20" FontFamily="Gadugi" Click="btnDetails_Click" Foreground="White" Background="Silver" BorderBrush="{x:Null}"/>
+        <Button x:Name="btnDelete" Grid.Column="2" Grid.Row="3" Margin="242,44,10,124" Content="Delete" FontSize="20" FontFamily="Gadugi" Click="btnDelete_Click" Foreground="White" Background="Silver" BorderBrush="{x:Null}"/>
+        <Button x:Name="btnAddToGarden" Grid.Column="2" Grid.Row="3" Margin="10,131,10,39" Content="Plant in my garden" FontSize="30" FontFamily="Gadugi" Click="btnAddToGarden_Click" Foreground="White" Background="#FF0F4518"/>
 
 
-        <ListView x:Name="lstPlants" Grid.Column="2" Grid.Row="1" Grid.RowSpan="3" Margin="10 100 10 180" FontFamily="Gabriola" FontSize="20" BorderBrush="{x:Null}">
-            <ListView.Background>
-                <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
-                    <GradientStop Color="#FFF8E5E5" Offset="1"/>
-                    <GradientStop Color="#FFFCF3E7" Offset="0.027"/>
-                </LinearGradientBrush>
-            </ListView.Background>
-        </ListView>
-        <Label Grid.Column="1" Grid.Row="1" Height="100" VerticalAlignment="Top" Margin="0,30,0,0" Content="Plants" FontSize="72" FontFamily="Gabriola"/>
-        <Label Grid.Column="1" Grid.Row="1" Content="Find plant" VerticalAlignment="Bottom" HorizontalAlignment="Left" Margin="10,0,0,42" FontSize="18" FontFamily="Gadugi"/>
-        <TextBlock x:Name="lblErrorMessage" Grid.Column="1" Grid.Row="2" Text="Sorry, we don't have that plant in our register. Please press -Add new plant- if you would like to add it to the collection or choose one in the view to the right!" TextWrapping="Wrap" TextAlignment="Center" VerticalAlignment="Top" FontSize="18" Margin="0,156,0,0" HorizontalAlignment="Center" FontFamily="Gadugi" IsEnabled="False" Grid.RowSpan="2" Width="196"/>
-        <TextBox x:Name="txtSearch" Grid.Column="1" Grid.Row="1" Margin="10,198,10,204" FontFamily="Gabriola" FontSize="18" Grid.RowSpan="2" />
+        <ListView x:Name="lstPlants" Grid.Column="2" Grid.Row="1" Grid.RowSpan="3" Margin="10,177,10,201" FontFamily="Gabriola" FontSize="20" BorderBrush="#FF0F4518" Background="{x:Null}" BorderThickness="5,5,5,5"/>
+        <Label Grid.Column="2" Grid.Row="1" Height="100" VerticalAlignment="Top" Margin="0,16,0,0" Content="Plants" FontSize="72" FontFamily="Gabriola" Foreground="#FF0F4518"/>
+        <Label Grid.Column="1" Grid.Row="1" Content="Find plant" VerticalAlignment="Bottom" HorizontalAlignment="Left" Margin="10,0,0,63" FontSize="18" FontFamily="Gadugi" Foreground="#FF7EB587"/>
+        <TextBlock x:Name="lblErrorMessage" Grid.Column="1" Grid.Row="2" Text="Sorry, we don't have that plant in our register. Please press -Add new plant- if you would like to add it to the collection or choose one in the view to the right!" TextWrapping="Wrap" TextAlignment="Center" VerticalAlignment="Top" FontSize="18" Margin="0,135,0,0" HorizontalAlignment="Center" FontFamily="Gadugi" IsEnabled="False" Grid.RowSpan="2" Width="196"/>
+        <TextBox x:Name="txtSearch" Grid.Column="1" Grid.Row="1" Margin="10,177,10,225" FontFamily="Gabriola" FontSize="18" Grid.RowSpan="2" />
+        <Label Grid.Column="1" Grid.Row="1" Height="64" VerticalAlignment="Top" Content="Go to my" FontSize="36" FontFamily="Gabriola" Margin="0,34,252,0"/>
+        <Button x:Name="btnMyGarden" Grid.Column="1" Grid.Row="1" Margin="110,40,104,129" Content="Search" FontSize="22" FontFamily="Gadugi" Click="btnMyGarden_Click" Background="{x:Null}" BorderBrush="{x:Null}"/>
     </Grid>
 </Window>

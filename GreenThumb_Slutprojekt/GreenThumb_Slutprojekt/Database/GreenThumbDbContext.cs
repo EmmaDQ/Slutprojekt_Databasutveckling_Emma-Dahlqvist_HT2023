@@ -1,18 +1,26 @@
-﻿using GreenThumb_Slutprojekt.Models;
+﻿using EntityFrameworkCore.EncryptColumn.Extension;
+using EntityFrameworkCore.EncryptColumn.Interfaces;
+using EntityFrameworkCore.EncryptColumn.Util;
+using GreenThumb_Slutprojekt.Manager;
+using GreenThumb_Slutprojekt.Models;
 using Microsoft.EntityFrameworkCore;
 
 namespace GreenThumb_Slutprojekt.Database
 {
     internal class GreenThumbDbContext : DbContext
     {
+        private readonly IEncryptionProvider _provider;
         public GreenThumbDbContext()
         {
+            _provider = new GenerateEncryptionProvider(KeyManager.GetEncryptionKey());
         }
 
         public DbSet<PlantModel> Plants { get; set; }
         public DbSet<InstructionModel> Instructions { get; set; }
         public DbSet<GardenModel> Gardens { get; set; }
         public DbSet<UserModel> Users { get; set; }
+        public DbSet<GardenModelPlantModel> GardenPlants { get; set; }
+
 
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
@@ -26,6 +34,14 @@ namespace GreenThumb_Slutprojekt.Database
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             base.OnModelCreating(modelBuilder);
+
+            modelBuilder.UseEncryption(_provider);
+
+
+            /*modelBuilder.Entity<GardenModelPlantModel>()
+                .HasKey(gp => new { gp.GPId });*/
+
+
 
             modelBuilder.Entity<PlantModel>()
                 .HasData(
@@ -310,6 +326,17 @@ namespace GreenThumb_Slutprojekt.Database
                     Password = "password"
 
                 });
+
+            modelBuilder.Entity<GardenModel>()
+                .HasData(
+                new GardenModel()
+                {
+                    GardenId = 1,
+                    Name = "Lovely garden",
+                    UserId = 1
+                }
+
+                );
 
 
 

@@ -99,9 +99,11 @@ namespace GreenThumb_Slutprojekt
         {
             string name = txtNamePlant.Text.Trim();
             name = char.ToUpper(name[0]) + name.Substring(1);
+            bool plantExist = false;
 
             if (inputManager.IsText(name))
             {
+
                 if (instructions.Count() >= 2)
                 {
                     using (GreenThumbDbContext context = new())
@@ -110,9 +112,37 @@ namespace GreenThumb_Slutprojekt
 
                         PlantModel newPlant = new() { Name = name, Instructions = instructions };
 
-                        uow.PlantRepo.Add(newPlant);
+                        foreach (var p in context.Plants)
+                        {
 
-                        uow.SaveChanges();
+                            if (name == p.Name)
+                            {
+                                plantExist = true;
+
+                            }
+
+                        }
+
+                        if (plantExist)
+                        {
+                            MessageBox.Show($"We already have a {name}! Please register a new plant.", "Plant exist");
+                        }
+
+                        else
+                        {
+                            uow.PlantRepo.Add(newPlant);
+
+                            uow.SaveChanges();
+
+                            PlantWindow plantWin = new();
+                            plantWin.Show();
+
+                            Close();
+                        }
+
+
+
+
 
                     }
                 }
@@ -130,10 +160,7 @@ namespace GreenThumb_Slutprojekt
             }
 
 
-            PlantWindow plantWin = new();
-            plantWin.Show();
 
-            Close();
         }
     }
 }

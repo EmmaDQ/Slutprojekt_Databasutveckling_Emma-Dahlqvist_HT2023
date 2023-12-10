@@ -5,15 +5,60 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:GreenThumb_Slutprojekt"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800" WindowStartupLocation="CenterScreen">
+        Title="MainWindow" Height="550" Width="800" WindowStartupLocation="CenterScreen">
     <Grid>
 
-        <Button BorderBrush="{x:Null}" Click="Button_Click_1">
-            <Button.Background>
-                <ImageBrush ImageSource="/mio-ito-DaGIjXNl5oA-unsplash.jpg" Stretch="UniformToFill"/>
-            </Button.Background>
-        </Button>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="20"/>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+            <ColumnDefinition Width="20"/>
+        </Grid.ColumnDefinitions>
+
+        <Grid.RowDefinitions>
+            <RowDefinition Height="20"/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition Height="20"/>
+        </Grid.RowDefinitions>
+
+
+        <Image Source="/52993781042_7acc1cbfab_b.jpg" Grid.ColumnSpan="3" Grid.RowSpan="6" Stretch="UniformToFill" Opacity="0.5">
+            <Image.OpacityMask>
+                <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                    <GradientStop Color="#FF096535"/>
+                    <GradientStop Color="#FFB9E458" Offset="1"/>
+                </LinearGradientBrush>
+            </Image.OpacityMask>
+        </Image>
+
+        <Canvas Grid.ColumnSpan="3" Grid.RowSpan="6" Opacity="0.7">
+            <Canvas.Background>
+                <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                    <GradientStop Color="#FF06583C" Offset="1"/>
+                    <GradientStop Color="#FFB0DB4F" Offset="0"/>
+                </LinearGradientBrush>
+            </Canvas.Background>
+        </Canvas>
+
+        <Image Source="/green-thumb-logo.png" Grid.ColumnSpan="2" Margin="77,76,57,31" Grid.RowSpan="2" Grid.Column="3" Grid.Row="1"/>
+
+        <Label Grid.ColumnSpan="3" Grid.Row="2" Grid.Column="3" Content="Sign in to GreenThumb" FontFamily="Gabriola" FontSize="48" VerticalAlignment="Top" Foreground="#FF509B10" FontWeight="Bold" Height="75" Grid.RowSpan="2" IsHitTestVisible="False" Width="400" HorizontalAlignment="Left" HorizontalContentAlignment="Center" Margin="0,98,0,0"/>
+        <Label Grid.Row="3" Grid.Column="3" Content=" Username" Margin="37,58,0,24" FontSize="24" FontFamily="Gadugi" Foreground="#FF003735" HorizontalAlignment="Left"/>
+        <Label Grid.Row="3" Grid.Column="3" Content="Password" Margin="51,103,0,86" FontSize="24" FontFamily="Gadugi" Foreground="#FF003735" HorizontalAlignment="Left" Grid.RowSpan="2"/>
+
+        <TextBox x:Name="txtUsername" Grid.Row="3" Grid.Column="3" Margin="172,60,18,26" Grid.ColumnSpan="2" FontFamily="Gadugi" Foreground="#FF509B10" FontSize="20" />
+        <PasswordBox x:Name="pwbPassword" Grid.Row="3" Grid.Column="3" Margin="172,109,18,101" Grid.ColumnSpan="2" Grid.RowSpan="2" />
+
+        <Button x:Name="btnSignIn" Grid.Row="4" Grid.Column="3" Margin="111,61,79,24" Content=" Sign in" BorderBrush="{x:Null}" Background="#FFAED079" Foreground="#FF023733" FontFamily="Gadugi" FontSize="16" Grid.ColumnSpan="2" Click="btnSignIn_Click" IsDefault="True"/>
+        <Button x:Name="btnRegister" Grid.Row="3" Grid.Column="4" Margin="95,37,0,0" Content="Register now!" BorderBrush="{x:Null}" Background="{x:Null}" Foreground="#FFFFBC00" FontFamily="Gadugi" Click="btnRegister_Click" FontWeight="UltraLight" VerticalAlignment="Top" HorizontalAlignment="Left" Height="25"/>
+
 
 
     </Grid>
+
 </Window>

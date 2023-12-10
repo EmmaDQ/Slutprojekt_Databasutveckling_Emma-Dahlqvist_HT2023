@@ -1,7 +1,11 @@
-﻿namespace GreenThumb_Slutprojekt.Manager
+﻿using GreenThumb_Slutprojekt.Models;
+
+namespace GreenThumb_Slutprojekt.Manager
 {
     public class InputManager
     {
+
+        public static UserModel LoggedInUser { get; set; }
         public InputManager()
         {
 

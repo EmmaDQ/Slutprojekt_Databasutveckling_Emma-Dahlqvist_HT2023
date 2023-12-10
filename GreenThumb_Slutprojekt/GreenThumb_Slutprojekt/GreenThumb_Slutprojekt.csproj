@@ -9,27 +9,35 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <None Remove="52993781042_7acc1cbfab_b.jpg" />
     <None Remove="GIF Garden.gif" />
+    <None Remove="green-thumb-logo.png" />
+    <None Remove="Japanese_garden_in_Ramoji_Film_City.jpg" />
     <None Remove="mio-ito-DaGIjXNl5oA-unsplash.jpg" />
+    <None Remove="MyGarden.png" />
   </ItemGroup>
 
   <ItemGroup>
     <PackageReference Include="entityframeworkcore.encryptcolumn" Version="6.0.8" />
-    <PackageReference Include="microsoft.entityframeworkcore" Version="6.0.25" />
-    <PackageReference Include="microsoft.entityframeworkcore.design" Version="6.0.25">
+    <PackageReference Include="Microsoft.EntityFrameworkCore" Version="6.0.8" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="6.0.8">
       <PrivateAssets>all</PrivateAssets>
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
     </PackageReference>
-    <PackageReference Include="microsoft.entityframeworkcore.sqlserver" Version="6.0.25" />
-    <PackageReference Include="microsoft.entityframeworkcore.tools" Version="6.0.25">
+    <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="6.0.8" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="6.0.8">
       <PrivateAssets>all</PrivateAssets>
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
     </PackageReference>
   </ItemGroup>
 
   <ItemGroup>
+    <Resource Include="52993781042_7acc1cbfab_b.jpg" />
     <Resource Include="GIF Garden.gif" />
+    <Resource Include="green-thumb-logo.png" />
+    <Resource Include="Japanese_garden_in_Ramoji_Film_City.jpg" />
     <Resource Include="mio-ito-DaGIjXNl5oA-unsplash.jpg" />
+    <Resource Include="MyGarden.png" />
   </ItemGroup>
 
 </Project>
