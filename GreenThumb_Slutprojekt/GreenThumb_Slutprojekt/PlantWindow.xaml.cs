@@ -38,6 +38,9 @@ namespace GreenThumb_Slutprojekt
 
 
 
+
+
+
             using (GreenThumbDbContext context = new())
             {
 

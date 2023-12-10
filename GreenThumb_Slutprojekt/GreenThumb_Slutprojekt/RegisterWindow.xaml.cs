@@ -152,7 +152,7 @@ namespace GreenThumb_Slutprojekt
 
                     uow.SaveChanges();
 
-                    PlantWindow plantWin = new PlantWindow(username);
+                    PlantWindow plantWin = new PlantWindow();
 
                     plantWin.Show();
                     Close();
